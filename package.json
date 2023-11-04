@@ -13,7 +13,8 @@
 		"sst:deploy": "sst deploy",
 		"sst:dev": "sst dev",
 		"devv": "vavite-loader vite dev",
-		"test": "sst bind vitest run"
+		"test": "sst bind vitest run",
+		"sso": "aws sso login --sso-session=mugi"
 	},
 	"devDependencies": {
 		"@skeletonlabs/skeleton": "^2.0.0",
