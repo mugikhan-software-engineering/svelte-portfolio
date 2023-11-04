@@ -4,7 +4,7 @@ import { SvelteKitSite, Api, StackContext } from 'sst/constructs';
 export default {
 	config(_input) {
 		return {
-			name: 'svelte_portfolio',
+			name: 'svelte-portfolio',
 			region: 'us-east-1',
 			profile: _input.stage === 'prod' ? 'mugi-prod' : 'mugi-dev'
 		};

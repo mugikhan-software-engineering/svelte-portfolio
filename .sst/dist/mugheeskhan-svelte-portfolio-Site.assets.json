@@ -1,0 +1,62 @@
+{
+  "version": "34.0.0",
+  "files": {
+    "e1ef288b72eca71b239a8b17f75a4a7563da207fc1313ca16ca58a2202ad5057": {
+      "source": {
+        "path": "asset.e1ef288b72eca71b239a8b17f75a4a7563da207fc1313ca16ca58a2202ad5057",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "542425556337-us-east-1": {
+          "bucketName": "cdk-hnb659fds-assets-542425556337-us-east-1",
+          "objectKey": "e1ef288b72eca71b239a8b17f75a4a7563da207fc1313ca16ca58a2202ad5057.zip",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::542425556337:role/cdk-hnb659fds-file-publishing-role-542425556337-us-east-1"
+        }
+      }
+    },
+    "5bc602ecde93c947efe5899ae355f999986a1acbe610b1c0b9c468d738857555": {
+      "source": {
+        "path": "asset.5bc602ecde93c947efe5899ae355f999986a1acbe610b1c0b9c468d738857555",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "542425556337-us-east-1": {
+          "bucketName": "cdk-hnb659fds-assets-542425556337-us-east-1",
+          "objectKey": "5bc602ecde93c947efe5899ae355f999986a1acbe610b1c0b9c468d738857555.zip",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::542425556337:role/cdk-hnb659fds-file-publishing-role-542425556337-us-east-1"
+        }
+      }
+    },
+    "d0f1e8fe3d9a627944502b1bd74f3d0da27efa51ae0c9093c9835e058fadd718": {
+      "source": {
+        "path": "asset.d0f1e8fe3d9a627944502b1bd74f3d0da27efa51ae0c9093c9835e058fadd718.zip",
+        "packaging": "file"
+      },
+      "destinations": {
+        "542425556337-us-east-1": {
+          "bucketName": "cdk-hnb659fds-assets-542425556337-us-east-1",
+          "objectKey": "d0f1e8fe3d9a627944502b1bd74f3d0da27efa51ae0c9093c9835e058fadd718.zip",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::542425556337:role/cdk-hnb659fds-file-publishing-role-542425556337-us-east-1"
+        }
+      }
+    },
+    "93db2dda3e3ed22eac2a4f7415c1a14e00fccb4511d927d422a3bbb72ecb0346": {
+      "source": {
+        "path": "mugheeskhan-svelte-portfolio-Site.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "542425556337-us-east-1": {
+          "bucketName": "cdk-hnb659fds-assets-542425556337-us-east-1",
+          "objectKey": "93db2dda3e3ed22eac2a4f7415c1a14e00fccb4511d927d422a3bbb72ecb0346.json",
+          "region": "us-east-1",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::542425556337:role/cdk-hnb659fds-file-publishing-role-542425556337-us-east-1"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}
