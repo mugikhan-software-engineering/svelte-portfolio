@@ -36,7 +36,7 @@
      },
      {
       "Key": "sst:stage",
-      "Value": "mugheeskhan"
+      "Value": "local"
      }
     ]
    }
@@ -46,7 +46,7 @@
    "Properties": {
     "Code": {
      "S3Bucket": "cdk-hnb659fds-assets-542425556337-us-east-1",
-     "S3Key": "e1ef288b72eca71b239a8b17f75a4a7563da207fc1313ca16ca58a2202ad5057.zip"
+     "S3Key": "9c59a848ce1275c9b5e66eb3be6b1717cb5c64ca1f03d42a795838dd825b9d4f.zip"
     },
     "Handler": "index.handler",
     "MemorySize": 1024,
@@ -64,7 +64,7 @@
      },
      {
       "Key": "sst:stage",
-      "Value": "mugheeskhan"
+      "Value": "local"
      }
     ],
     "Timeout": 900
@@ -114,7 +114,7 @@
      },
      {
       "Key": "sst:stage",
-      "Value": "mugheeskhan"
+      "Value": "local"
      }
     ]
    }
@@ -187,8 +187,8 @@
     "Environment": {
      "Variables": {
       "SST_APP": "svelte-portfolio",
-      "SST_STAGE": "mugheeskhan",
-      "SST_SSM_PREFIX": "/sst/svelte-portfolio/mugheeskhan/"
+      "SST_STAGE": "local",
+      "SST_SSM_PREFIX": "/sst/svelte-portfolio/local/"
      }
     },
     "Handler": "index.handler",
@@ -207,7 +207,7 @@
      },
      {
       "Key": "sst:stage",
-      "Value": "mugheeskhan"
+      "Value": "local"
      }
     ],
     "Timeout": 10
@@ -246,10 +246,10 @@
   "siteParameterurl3D1716BC": {
    "Type": "AWS::SSM::Parameter",
    "Properties": {
-    "Name": "/sst/svelte-portfolio/mugheeskhan/SvelteKitSite/site/url",
+    "Name": "/sst/svelte-portfolio/local/SvelteKitSite/site/url",
     "Tags": {
      "sst:app": "svelte-portfolio",
-     "sst:stage": "mugheeskhan"
+     "sst:stage": "local"
     },
     "Type": "String",
     "Value": "localhost"
@@ -291,7 +291,7 @@
      },
      {
       "Key": "sst:stage",
-      "Value": "mugheeskhan"
+      "Value": "local"
      }
     ]
    }
@@ -343,7 +343,7 @@
      },
      {
       "Key": "sst:stage",
-      "Value": "mugheeskhan"
+      "Value": "local"
      }
     ]
    },
@@ -359,21 +359,21 @@
     "Fn::Join": [
      "",
      [
-      "{\"app\":\"svelte-portfolio\",\"stage\":\"mugheeskhan\",\"version\":\"2.34.3\",\"metadata\":[{\"id\":\"site\",\"addr\":\"c85808fa3ee131d7412edeaaf476fb68d9e279dd07\",\"stack\":\"mugheeskhan-svelte-portfolio-Site\",\"type\":\"SvelteKitSite\",\"data\":{\"mode\":\"placeholder\",\"path\":\".\",\"runtime\":\"nodejs18.x\",\"server\":\"",
+      "{\"app\":\"svelte-portfolio\",\"stage\":\"local\",\"version\":\"2.34.3\",\"metadata\":[{\"id\":\"site\",\"addr\":\"c86c744d86f7493e7c71028dad018732a142ab5493\",\"stack\":\"local-svelte-portfolio-Site\",\"type\":\"SvelteKitSite\",\"data\":{\"mode\":\"placeholder\",\"path\":\".\",\"runtime\":\"nodejs18.x\",\"server\":\"",
       {
        "Fn::GetAtt": [
         "siteServerFunction6DFA6F1B",
         "Arn"
        ]
       },
-      "\",\"secrets\":[]}},{\"id\":\"ServerFunction\",\"addr\":\"c86d034a0562de9d78a7e3b59d434f056324e2c38e\",\"stack\":\"mugheeskhan-svelte-portfolio-Site\",\"type\":\"Function\",\"data\":{\"arn\":\"",
+      "\",\"secrets\":[]}},{\"id\":\"ServerFunction\",\"addr\":\"c86551cf8a85b15c980b9edbd18450d9eaa6980995\",\"stack\":\"local-svelte-portfolio-Site\",\"type\":\"Function\",\"data\":{\"arn\":\"",
       {
        "Fn::GetAtt": [
         "siteServerFunction6DFA6F1B",
         "Arn"
        ]
       },
-      "\",\"runtime\":\"nodejs18.x\",\"handler\":\"index.handler\",\"localId\":\"c86d034a0562de9d78a7e3b59d434f056324e2c38e\",\"secrets\":[]}}]}"
+      "\",\"runtime\":\"nodejs18.x\",\"handler\":\"index.handler\",\"localId\":\"c86551cf8a85b15c980b9edbd18450d9eaa6980995\",\"secrets\":[]}}]}"
      ]
     ]
    }

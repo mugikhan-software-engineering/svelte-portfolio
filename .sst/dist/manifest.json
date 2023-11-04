@@ -1,32 +1,32 @@
 {
   "version": "34.0.0",
   "artifacts": {
-    "mugheeskhan-svelte-portfolio-Site.assets": {
+    "local-svelte-portfolio-Site.assets": {
       "type": "cdk:asset-manifest",
       "properties": {
-        "file": "mugheeskhan-svelte-portfolio-Site.assets.json",
+        "file": "local-svelte-portfolio-Site.assets.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
       }
     },
-    "mugheeskhan-svelte-portfolio-Site": {
+    "local-svelte-portfolio-Site": {
       "type": "aws:cloudformation:stack",
       "environment": "aws://542425556337/us-east-1",
       "properties": {
-        "templateFile": "mugheeskhan-svelte-portfolio-Site.template.json",
+        "templateFile": "local-svelte-portfolio-Site.template.json",
         "terminationProtection": false,
         "tags": {
           "sst:app": "svelte-portfolio",
-          "sst:stage": "mugheeskhan"
+          "sst:stage": "local"
         },
         "validateOnSynth": false,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::542425556337:role/cdk-hnb659fds-deploy-role-542425556337-us-east-1",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::542425556337:role/cdk-hnb659fds-cfn-exec-role-542425556337-us-east-1",
-        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-542425556337-us-east-1/93db2dda3e3ed22eac2a4f7415c1a14e00fccb4511d927d422a3bbb72ecb0346.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-542425556337-us-east-1/8d72205904cb54c8f0ed9354631c9d6b9752bb24df434b6683743f7e4e97731c.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
         "additionalDependencies": [
-          "mugheeskhan-svelte-portfolio-Site.assets"
+          "local-svelte-portfolio-Site.assets"
         ],
         "lookupRole": {
           "arn": "arn:${AWS::Partition}:iam::542425556337:role/cdk-hnb659fds-lookup-role-542425556337-us-east-1",
@@ -35,10 +35,10 @@
         }
       },
       "dependencies": [
-        "mugheeskhan-svelte-portfolio-Site.assets"
+        "local-svelte-portfolio-Site.assets"
       ],
       "metadata": {
-        "/mugheeskhan-svelte-portfolio-Site": [
+        "/local-svelte-portfolio-Site": [
           {
             "type": "aws:cdk:stack-tags",
             "data": [
@@ -48,97 +48,97 @@
               },
               {
                 "Key": "sst:stage",
-                "Value": "mugheeskhan"
+                "Value": "local"
               }
             ]
           }
         ],
-        "/mugheeskhan-svelte-portfolio-Site/CustomResourceHandler/ServiceRole/Resource": [
+        "/local-svelte-portfolio-Site/CustomResourceHandler/ServiceRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CustomResourceHandlerServiceRole41AEC181"
           }
         ],
-        "/mugheeskhan-svelte-portfolio-Site/CustomResourceHandler/Resource": [
+        "/local-svelte-portfolio-Site/CustomResourceHandler/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CustomResourceHandlerE8FB56BA"
           }
         ],
-        "/mugheeskhan-svelte-portfolio-Site/site/ServerFunctionRole/Resource": [
+        "/local-svelte-portfolio-Site/site/ServerFunctionRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "siteServerFunctionRole1F8F4FAC"
           }
         ],
-        "/mugheeskhan-svelte-portfolio-Site/site/ServerFunction/AssetReplacerPolicy/Resource": [
+        "/local-svelte-portfolio-Site/site/ServerFunction/AssetReplacerPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "siteServerFunctionAssetReplacerPolicy304BF125"
           }
         ],
-        "/mugheeskhan-svelte-portfolio-Site/site/ServerFunction/AssetReplacer/Default": [
+        "/local-svelte-portfolio-Site/site/ServerFunction/AssetReplacer/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "siteServerFunctionAssetReplacer9A11D516"
           }
         ],
-        "/mugheeskhan-svelte-portfolio-Site/site/ServerFunction/ServerFunction/Resource": [
+        "/local-svelte-portfolio-Site/site/ServerFunction/ServerFunction/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "siteServerFunction6DFA6F1B"
           }
         ],
-        "/mugheeskhan-svelte-portfolio-Site/site/ServerFunction/ServerFunction/LogRetention/Resource": [
+        "/local-svelte-portfolio-Site/site/ServerFunction/ServerFunction/LogRetention/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "siteServerFunctionLogRetention7123678D"
           }
         ],
-        "/mugheeskhan-svelte-portfolio-Site/site/Parameter_url/Resource": [
+        "/local-svelte-portfolio-Site/site/Parameter_url/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "siteParameterurl3D1716BC"
           }
         ],
-        "/mugheeskhan-svelte-portfolio-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/Resource": [
+        "/local-svelte-portfolio-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRole9741ECFB"
           }
         ],
-        "/mugheeskhan-svelte-portfolio-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/DefaultPolicy/Resource": [
+        "/local-svelte-portfolio-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/ServiceRole/DefaultPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aServiceRoleDefaultPolicyADDA7DEB"
           }
         ],
-        "/mugheeskhan-svelte-portfolio-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Resource": [
+        "/local-svelte-portfolio-Site/LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8a/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "LogRetentionaae0aa3c5b4d4f87b02d85b201efdd8aFD4BFC8A"
           }
         ],
-        "/mugheeskhan-svelte-portfolio-Site/SSTStackOutputSSTMetadata": [
+        "/local-svelte-portfolio-Site/SSTStackOutputSSTMetadata": [
           {
             "type": "aws:cdk:logicalId",
             "data": "SSTMetadata"
           }
         ],
-        "/mugheeskhan-svelte-portfolio-Site/BootstrapVersion": [
+        "/local-svelte-portfolio-Site/BootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "BootstrapVersion"
           }
         ],
-        "/mugheeskhan-svelte-portfolio-Site/CheckBootstrapVersion": [
+        "/local-svelte-portfolio-Site/CheckBootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CheckBootstrapVersion"
           }
         ]
       },
-      "displayName": "mugheeskhan-svelte-portfolio-Site"
+      "displayName": "local-svelte-portfolio-Site"
     },
     "Tree": {
       "type": "cdk:tree",

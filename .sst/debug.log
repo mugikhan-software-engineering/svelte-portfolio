@@ -1,21 +1,21 @@
-2023-11-04T22:32:00.417Z  +1093ms [debug] Config loaded {"version":"2.34.3","cdkVersion":"2.101.1","constructsVersion":"10.2.69","config":{"name":"svelte-portfolio","region":"us-east-1","stage":"mugheeskhan","ssmPrefix":"/sst/svelte-portfolio/mugheeskhan/"},"metafile":{"inputs":{"sst.config.ts":{"bytes":314,"imports":[{"path":"sst/constructs","kind":"import-statement","external":true}],"format":"esm"}},"outputs":{".sst.config.1699137119333.mjs":{"imports":[{"path":"sst/constructs","kind":"import-statement","external":true}],"exports":["default"],"entryPoint":"sst.config.ts","inputs":{"sst.config.ts":{"bytesInOutput":223}},"bytes":405}}},"paths":{"config":"/Users/mugheeskhan/Documents/Personal/svelte-portfolio/sst.config.ts","root":"/Users/mugheeskhan/Documents/Personal/svelte-portfolio","out":"/Users/mugheeskhan/Documents/Personal/svelte-portfolio/.sst","artifacts":"/Users/mugheeskhan/Documents/Personal/svelte-portfolio/.sst/artifacts"}}
-2023-11-04T22:32:00.649Z   +232ms [debug] Using AWS profile 
-2023-11-04T22:32:00.650Z     +1ms [debug] Created AWS client IoTClient
-2023-11-04T22:32:00.650Z     +0ms [debug] Getting IoT endpoint
-2023-11-04T22:32:00.659Z     +9ms [debug] Synthesizing stacks...
-2023-11-04T22:32:00.666Z     +7ms [debug] Created AWS client STSClient
-2023-11-04T22:32:01.426Z   +760ms [debug] Using IoT endpoint: a85a04xejn6qn-ats.iot.us-east-1.amazonaws.com
-2023-11-04T22:32:01.426Z     +0ms [debug] Initializing bootstrap context
-2023-11-04T22:32:01.428Z     +2ms [debug] Created AWS client CloudFormationClient
-2023-11-04T22:32:01.656Z   +228ms [debug] Using identity Account: 542425556337 User: AIDAX4SYVEVYRWYXXQOWO
-2023-11-04T22:32:01.663Z     +7ms [debug] Generating types in /Users/mugheeskhan/Documents/Personal/svelte-portfolio/.sst/types
-2023-11-04T22:32:01.788Z   +125ms [debug] Running 1 deferred tasks with concurrency: 11
-2023-11-04T22:32:02.653Z   +865ms [debug] Loaded bootstrap status
-2023-11-04T22:32:02.653Z     +0ms [debug] Bootstrap context initialized {"status":"ready","version":"7.2","bucket":"sstbootstrap-useast124d14e4b-1fztsophnhdbz"}
-2023-11-04T22:32:02.654Z     +1ms [debug] Created AWS client S3Client
-2023-11-04T22:32:02.765Z   +111ms [debug] 
-2023-11-04T22:32:02.765Z     +0ms [debug] Loading v2 AWS SDK
-2023-11-04T22:32:02.765Z     +0ms [debug] Finished synthesizing
-2023-11-04T22:32:03.894Z  +1129ms [debug] IoT connected
-2023-11-04T22:32:03.937Z    +43ms [debug] Fetching metadata for stack mugheeskhan-svelte-portfolio-Site failed {"name":"NoSuchKey","$fault":"client","$metadata":{"httpStatusCode":404,"requestId":"YPCWGRDV3H5X2ZWV","extendedRequestId":"0cFIbkL+B1kMrMqBdn7+/ilkO4ug2QaL8kVzbmFzLof/uwtb4Kqpv6dJb3UHCrg0zHrmwLFS1ds=","attempts":1,"totalRetryDelay":0},"Code":"NoSuchKey","Key":"stackMetadata/app.svelte-portfolio/stage.mugheeskhan/stack.mugheeskhan-svelte-portfolio-Site.json","RequestId":"YPCWGRDV3H5X2ZWV","HostId":"0cFIbkL+B1kMrMqBdn7+/ilkO4ug2QaL8kVzbmFzLof/uwtb4Kqpv6dJb3UHCrg0zHrmwLFS1ds=","message":"The specified key does not exist."}
-2023-11-04T22:32:03.939Z     +2ms [debug] Created AWS client SSMClient
+2023-11-04T22:44:59.560Z  +9162ms [debug] Config loaded {"version":"2.34.3","cdkVersion":"2.101.1","constructsVersion":"10.2.69","config":{"name":"svelte-portfolio","region":"us-east-1","stage":"local","ssmPrefix":"/sst/svelte-portfolio/local/"},"metafile":{"inputs":{"sst.config.ts":{"bytes":314,"imports":[{"path":"sst/constructs","kind":"import-statement","external":true}],"format":"esm"}},"outputs":{".sst.config.1699137890406.mjs":{"imports":[{"path":"sst/constructs","kind":"import-statement","external":true}],"exports":["default"],"entryPoint":"sst.config.ts","inputs":{"sst.config.ts":{"bytesInOutput":223}},"bytes":405}}},"paths":{"config":"/Users/mugheeskhan/Documents/Personal/svelte-portfolio/sst.config.ts","root":"/Users/mugheeskhan/Documents/Personal/svelte-portfolio","out":"/Users/mugheeskhan/Documents/Personal/svelte-portfolio/.sst","artifacts":"/Users/mugheeskhan/Documents/Personal/svelte-portfolio/.sst/artifacts"}}
+2023-11-04T22:44:59.820Z   +260ms [debug] Using AWS profile 
+2023-11-04T22:44:59.822Z     +2ms [debug] Created AWS client IoTClient
+2023-11-04T22:44:59.822Z     +0ms [debug] Getting IoT endpoint
+2023-11-04T22:44:59.838Z    +16ms [debug] Synthesizing stacks...
+2023-11-04T22:44:59.845Z     +7ms [debug] Created AWS client STSClient
+2023-11-04T22:45:00.628Z   +783ms [debug] Using IoT endpoint: a85a04xejn6qn-ats.iot.us-east-1.amazonaws.com
+2023-11-04T22:45:00.628Z     +0ms [debug] Initializing bootstrap context
+2023-11-04T22:45:00.628Z     +0ms [debug] Created AWS client CloudFormationClient
+2023-11-04T22:45:00.851Z   +223ms [debug] Using identity Account: 542425556337 User: AIDAX4SYVEVYRWYXXQOWO
+2023-11-04T22:45:00.858Z     +7ms [debug] Generating types in /Users/mugheeskhan/Documents/Personal/svelte-portfolio/.sst/types
+2023-11-04T22:45:00.978Z   +120ms [debug] Running 1 deferred tasks with concurrency: 11
+2023-11-04T22:45:01.828Z   +850ms [debug] Loaded bootstrap status
+2023-11-04T22:45:01.828Z     +0ms [debug] Bootstrap context initialized {"status":"ready","version":"7.2","bucket":"sstbootstrap-useast124d14e4b-1fztsophnhdbz"}
+2023-11-04T22:45:01.830Z     +2ms [debug] Created AWS client S3Client
+2023-11-04T22:45:01.942Z   +112ms [debug] 
+2023-11-04T22:45:01.942Z     +0ms [debug] Loading v2 AWS SDK
+2023-11-04T22:45:01.944Z     +2ms [debug] Finished synthesizing
+2023-11-04T22:45:03.047Z  +1103ms [debug] IoT connected
+2023-11-04T22:45:03.077Z    +30ms [debug] Fetching metadata for stack local-svelte-portfolio-Site failed {"name":"NoSuchKey","$fault":"client","$metadata":{"httpStatusCode":404,"requestId":"JBBERY1ZKP8T9XKN","extendedRequestId":"5J7Ddbsf91KEz2i0uV6vUu+aBvFoP0uLaUmvLsbW4CTCoAIba4KXW1L8+LmZcPxImAjNEG3OOBQ=","attempts":1,"totalRetryDelay":0},"Code":"NoSuchKey","Key":"stackMetadata/app.svelte-portfolio/stage.local/stack.local-svelte-portfolio-Site.json","RequestId":"JBBERY1ZKP8T9XKN","HostId":"5J7Ddbsf91KEz2i0uV6vUu+aBvFoP0uLaUmvLsbW4CTCoAIba4KXW1L8+LmZcPxImAjNEG3OOBQ=","message":"The specified key does not exist."}
+2023-11-04T22:45:03.079Z     +2ms [debug] Created AWS client SSMClient
