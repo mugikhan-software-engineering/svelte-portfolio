@@ -1,0 +1,40 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+# permission can be added at job level or workflow level
+permissions:
+  id-token: write # This is required for requesting the JWT
+  contents: read # This is required for actions/checkout
+jobs:
+  DeployApp:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git clone the repository
+        uses: actions/checkout@v3
+      - name: Setup Node.js
+        # https://github.com/actions/setup-node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          role-to-assume: arn:aws:iam::542425556337:role/GitHub
+          aws-region: af-south-1
+
+      # - name: Make envfile
+      #   uses: SpicyPizza/create-envfile@v2.0
+      #   with:
+      #     envkey_PLACES_API_KEY: ${{ secrets.PLACES_API_KEY }}
+      #     file_name: .env
+      - name: Deploy app
+        run: |
+          npm i
+          npx sst deploy --stage prod
