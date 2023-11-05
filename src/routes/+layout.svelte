@@ -3,7 +3,7 @@
 
 	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
 
-	import logo from '$lib/assets/white-logo-background.png';
+	import logo from '$lib/assets/white-logo-background.webp';
 
 	import {
 		storePopup,
@@ -28,7 +28,7 @@
 
 	let currentYear: String = '2023';
 
-	//Drawer and toasts
+	//Drawer and toasts`
 	initializeStores();
 	const drawerStore: DrawerStore = getDrawerStore();
 

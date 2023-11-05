@@ -1,5 +1,5 @@
 <script lang="ts">
-	import profile from '$lib/assets/profile_2.png';
+	import profile from '$lib/assets/profile-2.webp';
 	import serviceCard from '$lib/service_card.svelte';
 	import floatingTitle from '$lib/float_in_title.svelte';
 	import technology from '$lib/technology.svelte';
@@ -12,7 +12,6 @@
 	import { inview, type Options } from 'svelte-inview';
 
 	import { SyncLoader } from 'svelte-loading-spinners';
-	import { error, type ActionResult } from '@sveltejs/kit';
 	import { Toast, getToastStore, modeCurrent } from '@skeletonlabs/skeleton';
 	import { GithubIcon, LinkedinIcon, AtSignIcon } from 'svelte-feather-icons';
 
@@ -76,8 +75,6 @@
 	$: isValidEmail = validateEmail(email);
 
 	$: active_class = loading ? 'loading pointer-events-none opacity-30' : '';
-
-	export let form;
 </script>
 
 <div class="container">
@@ -95,7 +92,7 @@
 						class="flex flex-col justify-center items-center w-full lg:h-full xs:mt-5 sm:mt-5 text-center md:text-left"
 					>
 						<h1
-							class="text-white lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[90px] xs:text-center mt-6 lg:mt-2 uppercase w-full"
+							class="h1 text-white lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[90px] xs:text-center mt-6 lg:mt-2 uppercase w-full"
 						>
 							Hi, I'm <span class="sm:text-[90px] text-[50px] font-mova font-extrabold uppercase"
 								>Mugi</span
