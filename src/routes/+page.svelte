@@ -4,6 +4,7 @@
 	import floatingTitle from '$lib/float_in_title.svelte';
 	import technology from '$lib/technology.svelte';
 	import timeline from '$lib/timeline.svelte';
+	import aboutMe from '$lib/components/about_me.svelte';
 
 	import { enhance, applyAction } from '$app/forms';
 
@@ -13,14 +14,12 @@
 	import { SyncLoader } from 'svelte-loading-spinners';
 	import { error, type ActionResult } from '@sveltejs/kit';
 	import { Toast, getToastStore, modeCurrent } from '@skeletonlabs/skeleton';
-	import type { ToastSettings, ToastStore } from '@skeletonlabs/skeleton';
+	import { GithubIcon, LinkedinIcon, AtSignIcon } from 'svelte-feather-icons';
 
-	import type { Actions } from './$types';
+	import type { ToastSettings, ToastStore } from '@skeletonlabs/skeleton';
 
 	let isInViewCards: boolean;
 	let isInViewOverviewTitle: boolean;
-	let isInViewTech: boolean;
-	let isInViewTechTitle: boolean;
 	let isInViewExpTitle: boolean;
 	let isInViewContactTitle: boolean = true;
 	let isHoneypotChecked: boolean = false;
@@ -39,7 +38,8 @@
 		if (!scrollToElement) return;
 
 		scrollToElement.scrollIntoView({
-			behavior: 'smooth'
+			behavior: 'smooth',
+			block: 'center'
 		});
 	};
 
@@ -142,16 +142,17 @@
 			/>
 		</div>
 
-		<div class="flex flex-row flex-wrap w-full place-content-start items-start px-6 my-4">
-			<p class="text-lg">
-				I have been working as a fullstack developer for the past 5 years. I have worked in multiple
-				environments from startups to corporate clients. I have worked in multi-cultural teams
-				varying in size from 3 to 30 team members. I love learning new technologies and frameworks,
-				such as flutter, react or svelte. I have deployed multiple projects including this one to
-				Amazon Web Services (AWS) and traditional web servers. If you are interested in working
-				together, feel free to contact me.
-			</p>
-		</div>
+		<svelte:component this={aboutMe} themeMode={$modeCurrent} />
+	</section>
+
+	<section id="services" class="h-fit w-screen flex flex-col">
+		<svelte:component
+			this={floatingTitle}
+			title="WHAT I DO"
+			subtitle="Services."
+			yOffset={-50}
+			isVisible={isInViewCards}
+		/>
 
 		<div
 			class="flex flex-row flex-wrap w-full place-content-center items-center"
@@ -166,7 +167,6 @@
 				title="Mobile app development"
 				assetPath={$modeCurrent ? servicesLight['mobile'] : services['mobile']}
 				isVisible={isInViewCards}
-				themeMode={$modeCurrent}
 				delay={500}
 				xOffset={-400}
 			/>
@@ -175,7 +175,6 @@
 				title="Website development"
 				assetPath={$modeCurrent ? servicesLight['web'] : services['web']}
 				isVisible={isInViewCards}
-				themeMode={$modeCurrent}
 				delay={1000}
 				xOffset={-300}
 			/>
@@ -184,7 +183,6 @@
 				title="Backend development"
 				assetPath={$modeCurrent ? servicesLight['backend'] : services['backend']}
 				isVisible={isInViewCards}
-				themeMode={$modeCurrent}
 				delay={1500}
 				xOffset={-200}
 			/>
@@ -193,14 +191,13 @@
 				title="Maintenance and upgrades"
 				assetPath={$modeCurrent ? servicesLight['maintenance'] : services['maintenance']}
 				isVisible={isInViewCards}
-				themeMode={$modeCurrent}
 				delay={2000}
 				xOffset={-100}
 			/>
 		</div>
 	</section>
 
-	<section id="tech" class="h-fit w-screen flex flex-col">
+	<!-- <section id="tech" class="h-fit w-screen flex flex-col">
 		<div
 			class="flex flex-row flex-wrap h-fit w-full place-content-start items-start mb-5"
 			use:inview
@@ -227,7 +224,7 @@
 		>
 			<svelte:component this={technology} isVisible={isInViewTech} />
 		</div>
-	</section>
+	</section> -->
 
 	<section id="experience" class="flex flex-col h-fit w-screen">
 		<div
@@ -392,6 +389,26 @@
 					</button>
 				</div>
 			</form>
+		</div>
+	</section>
+
+	<section id="socials" class="w-screen mb-6">
+		<div class="flex flex-row flex-wrap justify-center w-full gap-x-4 gap-y-2">
+			<a
+				class="flex flex-row items-center text-2xl block text-gray-900 rounded hover:text-slate-500 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+				href="mailto:mugikhan@gmail.com"
+				><AtSignIcon size="32" class="text-black mr-4 hover:text-slate-500" /></a
+			>
+			<a
+				class="flex flex-row items-center text-2xl block text-gray-900 rounded hover:text-slate-500 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+				href="https://www.linkedin.com/in/mughees-khan-9261aa15b/"
+				target="_blank"><LinkedinIcon size="32" class="text-black mr-4 hover:text-slate-500" /></a
+			>
+			<a
+				class="flex flex-row items-center text-2xl block text-gray-900 rounded hover:text-slate-500 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+				href="https://github.com/mugikhan"
+				target="_blank"><GithubIcon size="32" class="text-black mr-4 hover:text-slate-500" /></a
+			>
 		</div>
 	</section>
 </div>

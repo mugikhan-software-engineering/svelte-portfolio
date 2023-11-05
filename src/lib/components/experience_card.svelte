@@ -14,6 +14,12 @@
 	</div>
 	<div class="mb-2">{experience.position}</div>
 	<div class="mb-1">{experience.description}</div>
+	<div class="flex flex-row flex-wrap gap-x-1 gap-y-1 mb-1">
+		{#each experience.tech as technology}
+			<span class="chip variant-ringed-primary rounded-md">{technology}</span>
+		{/each}
+	</div>
+
 	<div class="md:hidden flex flex-row items-end justify-end space-x-2 mb-1">
 		<div class="font-bold">
 			<time datetime="2018-04-01">{experience.dateFrom}</time>
