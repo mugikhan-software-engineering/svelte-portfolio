@@ -3,7 +3,7 @@ import type { RequestHandler } from '@sveltejs/kit';
 export const GET: RequestHandler = async () => {
 	const websiteFull = 'https://www.mugikhan.com';
 	const website = 'https://mugikhan.com';
-	const pages: Array<String> = [];
+	const pages: string[] = [];
 	return new Response(
 		`<?xml version="1.0" encoding="UTF-8" ?>
 			<urlset
