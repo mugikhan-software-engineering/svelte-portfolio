@@ -9,7 +9,7 @@
 
 {#if isVisible}
 	<div class="flex flex-col px-5" transition:fly={{ duration: 750, y: yOffset, opacity: 0 }}>
-		<h5 class="h5 mb-3 opacity-75">{title}</h5>
-		<h1 class="h1">{subtitle}</h1>
+		<h4 class="h4 mb-3 opacity-75">{title}</h4>
+		<h2 class="h2">{subtitle}</h2>
 	</div>
 {/if}
