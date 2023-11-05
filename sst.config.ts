@@ -5,7 +5,7 @@ export default {
 	config(_input) {
 		return {
 			name: 'svelte-portfolio',
-			region: 'us-east-1',
+			region: 'af-south-1',
 			profile: _input.stage === 'prod' ? 'mugi-prod' : 'mugi-dev'
 		};
 	},
@@ -21,11 +21,11 @@ export default {
 			// });
 			// api.attachPermissions(['ses:SendTemplatedEmail']);
 			const site = new SvelteKitSite(stack, 'site', {
-				// customDomain: {
-				// 	domainName: stack.stage === 'prod' ? 'mugikhan.com' : `${stack.stage}.mugikhan.com`,
-				// 	domainAlias:
-				// 		stack.stage === 'prod' ? 'www.mugikhan.com' : `www.${stack.stage}.mugikhan.com`
-				// }
+				customDomain: {
+					domainName: stack.stage === 'prod' ? 'mugikhan.com' : `${stack.stage}.mugikhan.com`,
+					domainAlias:
+						stack.stage === 'prod' ? 'www.mugikhan.com' : `www.${stack.stage}.mugikhan.com`
+				}
 				// bind: [api]
 			});
 			stack.addOutputs({
