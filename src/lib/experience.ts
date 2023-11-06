@@ -22,7 +22,7 @@ const dynexIt: Experience = {
 	companyName: 'Dynex.IT',
 	position: 'Software Engineer',
 	description:
-		'I joined Entelect at the start of 2021 for corporate project exposure. My focus was on full stack development but initially I was assigned to a bank as a mobile developer. I started work originally as an android developer on the banks business banking mobile application using Backbase. The bulk of the work was on the iOS side and this resulted in me pivoting and learning swift. I can confidently say I can complete features in both iOS and Android.',
+		'During my final year of study (4th year) I started working as a software engineer at Dynex.IT. My focus was mainly on front-end development as well as integration of back-end systems with the front-end. I also dabbled in API design and deployment.',
 	dateFrom: 'OCT 2018',
 	dateTo: 'DEC 2020',
 	tech: ['Flutter', 'Dart', 'Javascript', 'Three.js', 'Postgres', 'AWS']
