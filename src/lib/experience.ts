@@ -12,7 +12,7 @@ const kopanoAi: Experience = {
 	companyName: 'Kopano.ai',
 	position: 'Software Engineering Intern',
 	description:
-		'During my final year of study (4th year) I was working as a software engineering intern. My focus was on front-end development in React, HTML and CSS. I collaborate in a team focused environment providing solutions and design to diverse industry clients.',
+		'During my final year of study (4th year) I started my career as a software engineering intern. My focus was on front-end development in React, HTML and CSS. I collaborated in a team focused environment providing bespoke solutions for the main product at the time, Loom.',
 	dateFrom: 'MAY 2018',
 	dateTo: 'OCT 2018',
 	tech: ['React', 'Javascript']
@@ -22,7 +22,7 @@ const dynexIt: Experience = {
 	companyName: 'Dynex.IT',
 	position: 'Software Engineer',
 	description:
-		'During my final year of study (4th year) I started working as a software engineer at Dynex.IT. My focus was mainly on front-end development as well as integration of back-end systems with the front-end. I also dabbled in API design and deployment.',
+		'During my final year of study (4th year) I also started working as a software engineer at Dynex.IT. My focus was mainly on front-end development in Flutter as well as integration of back-end systems with the front-end. I also dabbled in API design and CI/CD.',
 	dateFrom: 'OCT 2018',
 	dateTo: 'DEC 2020',
 	tech: ['Flutter', 'Dart', 'Javascript', 'Three.js', 'Postgres', 'AWS']

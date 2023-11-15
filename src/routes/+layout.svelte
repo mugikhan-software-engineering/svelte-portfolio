@@ -14,7 +14,12 @@
 		localStorageStore,
 		storeHighlightJs,
 		Drawer,
-		getDrawerStore
+		getDrawerStore,
+		modeCurrent,
+		setModeUserPrefers,
+		setModeCurrent,
+		setInitialClassState,
+		getModeOsPrefers
 	} from '@skeletonlabs/skeleton';
 
 	import type { DrawerSettings, DrawerStore } from '@skeletonlabs/skeleton';
@@ -32,9 +37,19 @@
 	initializeStores();
 	const drawerStore: DrawerStore = getDrawerStore();
 
+	function onToggleHandler(): void {
+		$modeCurrent = !$modeCurrent;
+		setModeUserPrefers($modeCurrent);
+		setModeCurrent($modeCurrent);
+	}
+
 	onMount(() => {
 		const d: Date = new Date();
 		currentYear = `${d.getFullYear()}`;
+
+		if (!('modeCurrent' in localStorage)) {
+			setModeCurrent(getModeOsPrefers());
+		}
 	});
 
 	const scrollIntoView = ({ currentTarget }: any) => {
