@@ -6,19 +6,13 @@
 	import logo from '$lib/assets/white-logo-background.webp';
 
 	import {
-		storePopup,
-		popup,
 		initializeStores,
 		Toast,
 		LightSwitch,
-		localStorageStore,
 		storeHighlightJs,
 		Drawer,
 		getDrawerStore,
-		modeCurrent,
-		setModeUserPrefers,
 		setModeCurrent,
-		setInitialClassState,
 		getModeOsPrefers
 	} from '@skeletonlabs/skeleton';
 
@@ -36,12 +30,6 @@
 	//Drawer and toasts`
 	initializeStores();
 	const drawerStore: DrawerStore = getDrawerStore();
-
-	function onToggleHandler(): void {
-		$modeCurrent = !$modeCurrent;
-		setModeUserPrefers($modeCurrent);
-		setModeCurrent($modeCurrent);
-	}
 
 	onMount(() => {
 		const d: Date = new Date();
