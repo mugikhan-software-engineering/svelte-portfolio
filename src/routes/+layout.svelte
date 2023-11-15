@@ -6,15 +6,14 @@
 	import logo from '$lib/assets/white-logo-background.webp';
 
 	import {
-		storePopup,
-		popup,
 		initializeStores,
 		Toast,
 		LightSwitch,
-		localStorageStore,
 		storeHighlightJs,
 		Drawer,
-		getDrawerStore
+		getDrawerStore,
+		setModeCurrent,
+		getModeOsPrefers
 	} from '@skeletonlabs/skeleton';
 
 	import type { DrawerSettings, DrawerStore } from '@skeletonlabs/skeleton';
@@ -35,6 +34,10 @@
 	onMount(() => {
 		const d: Date = new Date();
 		currentYear = `${d.getFullYear()}`;
+
+		if (!('modeCurrent' in localStorage)) {
+			setModeCurrent(getModeOsPrefers());
+		}
 	});
 
 	const scrollIntoView = ({ currentTarget }: any) => {
