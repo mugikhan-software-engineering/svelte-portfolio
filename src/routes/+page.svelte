@@ -391,21 +391,31 @@
 
 	<section id="socials" class="w-screen mb-6">
 		<div class="flex flex-row flex-wrap justify-center w-full gap-x-8 gap-y-2">
-			<a
-				class="flex flex-row items-center text-2xl block text-gray-900 rounded hover:text-slate-500 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-				href="mailto:mugikhan@gmail.com"
-				><AtSignIcon size="32" class="text-token hover:text-slate-500" /></a
-			>
-			<a
-				class="flex flex-row items-center text-2xl block text-gray-900 rounded hover:text-slate-500 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-				href="https://www.linkedin.com/in/mughees-khan-9261aa15b/"
-				target="_blank"><LinkedinIcon size="32" class="text-token hover:text-slate-500" /></a
-			>
-			<a
-				class="flex flex-row items-center text-2xl block text-gray-900 rounded hover:text-slate-500 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-				href="https://github.com/mugikhan"
-				target="_blank"><GithubIcon size="32" class="text-token hover:text-slate-500" /></a
-			>
+			<div class="logo-cloud grid-cols-1 lg:!grid-cols-3 gap-0 [&>.logo-item]:variant-soft-surface">
+				<a
+					class="logo-item !px-4 flex flex-row items-end justify-center text-xl text-token"
+					href="mailto:mugikhan@gmail.com"
+				>
+					<AtSignIcon size="32" class="text-token mr-2" />
+					<p class="text-token text-xl/[32px]">Email</p>
+				</a>
+				<a
+					class="logo-item !px-4 flex flex-row items-end justify-center text-xl text-token"
+					href="https://www.linkedin.com/in/mughees-khan-9261aa15b/"
+					target="_blank"
+				>
+					<LinkedinIcon size="32" class="text-token mr-2" />
+					<p class="text-token text-xl/[26px]">LinkedIn</p>
+				</a>
+				<a
+					class="logo-item !px-4 flex flex-row items-end justify-center text-xl/[32px]"
+					href="https://github.com/mugikhan"
+					target="_blank"
+				>
+					<GithubIcon size="32" class="text-token" />
+					<p class="text-token text-xl/[32px]">GitHub</p>
+				</a>
+			</div>
 		</div>
 	</section>
 </div>
