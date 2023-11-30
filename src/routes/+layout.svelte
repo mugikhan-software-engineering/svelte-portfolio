@@ -13,10 +13,17 @@
 		Drawer,
 		getDrawerStore,
 		setModeCurrent,
-		getModeOsPrefers
+		getModeOsPrefers,
+		Modal,
+		getModalStore
 	} from '@skeletonlabs/skeleton';
 
-	import type { DrawerSettings, DrawerStore } from '@skeletonlabs/skeleton';
+	import type {
+		DrawerSettings,
+		DrawerStore,
+		ModalStore,
+		ModalSettings
+	} from '@skeletonlabs/skeleton';
 
 	import { onMount } from 'svelte';
 	import { hljs } from '$lib/utils/highlight_setup';
@@ -27,9 +34,26 @@
 
 	let currentYear: String = '2023';
 
-	//Drawer and toasts`
+	let tapCount: number = 0;
+
+	//Drawers, toasts and modals
 	initializeStores();
 	const drawerStore: DrawerStore = getDrawerStore();
+	const modalStore: ModalStore = getModalStore();
+
+	const modal: ModalSettings = {
+		type: 'alert',
+		title: 'For the love of my life, Ayesha <3',
+		modalClasses: 'text-center'
+	};
+
+	function onFooterTap() {
+		tapCount++;
+		if (tapCount >= 7) {
+			tapCount = 0;
+			modalStore.trigger(modal);
+		}
+	}
 
 	onMount(() => {
 		const d: Date = new Date();
@@ -144,6 +168,7 @@
 </Drawer>
 
 <Toast />
+<Modal />
 
 <AppShell>
 	<svelte:fragment slot="header">
@@ -191,11 +216,16 @@
 		</AppBar>
 	</svelte:fragment>
 	<slot />
-	<svelte:fragment slot="pageFooter"
-		><div class="flex flex-col md:flex-row justify-center items-center pl-2 md:pl-0">
-			<p class="text-md">
-				Copyright © {currentYear}. All Rights Reserved. Website by Mugi Khan
-			</p>
-		</div>
+	<svelte:fragment slot="pageFooter">
+		<button
+			class="flex flex-col md:flex-row justify-center items-center w-[100%] mb-1"
+			on:click={onFooterTap}
+		>
+			<div class="flex flex-col md:flex-row justify-center items-center">
+				<p class="text-md">
+					Copyright © {currentYear}. All Rights Reserved. Website by Mugi Khan
+				</p>
+			</div>
+		</button>
 	</svelte:fragment>
 </AppShell>
