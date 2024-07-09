@@ -16,6 +16,7 @@
 	import { GithubIcon, LinkedinIcon, AtSignIcon } from 'svelte-feather-icons';
 
 	import type { ToastSettings, ToastStore } from '@skeletonlabs/skeleton';
+	import { Turnstile } from 'svelte-turnstile';
 
 	let isInViewCards: boolean;
 	let isInViewOverviewTitle: boolean;
@@ -25,10 +26,6 @@
 
 	const options: Options = {
 		unobserveOnEnter: true
-	};
-
-	const onChangehoneypotCheck = (event: any) => {
-		isHoneypotChecked = event.target.checked;
 	};
 
 	const scrollIntoView = ({ currentTarget }: any) => {
@@ -66,15 +63,9 @@
 
 	let loading: Boolean = false;
 
-	function validateEmail(email: String) {
-		var emailRegEx =
-			/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-		return emailRegEx.test(String(email).toLowerCase());
-	}
-
-	$: isValidEmail = validateEmail(email);
-
 	$: active_class = loading ? 'loading pointer-events-none opacity-30' : '';
+
+	let reset: () => void | undefined;
 </script>
 
 <div class="container">
@@ -274,6 +265,7 @@
 							}
 						}
 						await applyAction(result);
+						reset?.();
 						update();
 					};
 				}}
@@ -341,11 +333,9 @@
 						</span>
 					</div>
 				</label>
-
-				<label class="flex items-center justify-center space-x-2 opacity-0">
-					<input class="checkbox" type="checkbox" on:change={onChangehoneypotCheck} />
-					<p>Click here to confirm</p>
-				</label>
+				<div class="w-full flex flex-row items-center justify-center mb-2">
+				<Turnstile siteKey="0x4AAAAAAAevj-w71wPNa1Ya" bind:reset />
+				</div>
 				<div
 					class="w-full flex flex-row items-center justify-center mb-5 group-invalid:pointer-events-none group-invalid:opacity-30 {active_class}"
 				>

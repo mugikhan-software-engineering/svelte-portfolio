@@ -3,7 +3,7 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"dev": "sst bind vite dev",
+		"dev": "sst bind vite dev --profile default",
 		"build": "vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -11,7 +11,7 @@
 		"lint": "prettier --plugin-search-dir . --check . && eslint .",
 		"format": "prettier --plugin-search-dir . --write .",
 		"sst:deploy": "sst deploy",
-		"sst:dev": "sst dev",
+		"sst:dev": "sst dev --profile default",
 		"devv": "vavite-loader vite dev",
 		"test": "sst bind vitest run",
 		"sso": "aws sso login --sso-session=mugi"
@@ -43,6 +43,7 @@
 		"svelte-feather-icons": "^4.0.1",
 		"svelte-kit-sst": "^2.34.3",
 		"svelte-loading-spinners": "^0.3.4",
+		"svelte-turnstile": "^0.7.0",
 		"tailwindcss": "^3.3.3",
 		"tslib": "^2.4.1",
 		"typescript": "^5.0.0",
