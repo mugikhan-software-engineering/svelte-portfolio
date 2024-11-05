@@ -128,6 +128,7 @@
 						on:click|preventDefault={scrollIntoView}
 						class="text-token block flex flex-row items-center rounded px-4 text-2xl hover:text-slate-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
 						href="#about"
+						aria-label="More about me"
 						><BookOpenIcon size="32" class="text-token mr-4 hover:text-slate-500"
 						></BookOpenIcon>About</a
 					>
@@ -138,6 +139,7 @@
 						on:click|preventDefault={scrollIntoView}
 						class="text-token block flex flex-row items-center rounded px-4 text-2xl hover:text-slate-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
 						href="#services"
+						aria-label="Services I provide"
 						><CodeIcon size="32" class="text-token mr-4 hover:text-slate-500"></CodeIcon>Services</a
 					>
 				</li>
@@ -147,6 +149,7 @@
 						on:click|preventDefault={scrollIntoView}
 						class="text-token block flex flex-row items-center rounded px-4 text-2xl hover:text-slate-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
 						href="#experience"
+						aria-label="Experience in the industry"
 						><ListIcon size="32" class="text-token mr-4 hover:text-slate-500"
 						></ListIcon>Experience</a
 					>
@@ -157,6 +160,7 @@
 						on:click|preventDefault={scrollIntoView}
 						class="text-token block flex flex-row items-center rounded px-4 text-2xl hover:text-slate-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
 						href="#contact"
+						aria-label="Contact me via email"
 						><MailIcon size="32" class="text-token mr-4 hover:text-slate-500"></MailIcon>Contact</a
 					>
 				</li>
