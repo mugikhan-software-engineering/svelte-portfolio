@@ -37,4 +37,6 @@ jobs:
       - name: Deploy app
         run: |
           npm i
+          npx sst bootstrap remove
+          npx sst bootstrap
           npx sst deploy --stage prod
