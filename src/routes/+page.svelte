@@ -12,17 +12,17 @@
 	import { inview, type Options } from 'svelte-inview';
 
 	import { SyncLoader } from 'svelte-loading-spinners';
-	import { Toast, getToastStore, modeCurrent } from '@skeletonlabs/skeleton';
+	import { getToastStore, modeCurrent } from '@skeletonlabs/skeleton';
 	import { GithubIcon, LinkedinIcon, AtSignIcon } from 'svelte-feather-icons';
 
-	import type { ToastSettings, ToastStore } from '@skeletonlabs/skeleton';
+	import type { ToastSettings } from '@skeletonlabs/skeleton';
 	import { Turnstile } from 'svelte-turnstile';
 
 	let isInViewCards: boolean;
 	let isInViewOverviewTitle: boolean;
 	let isInViewExpTitle: boolean;
+	let isInViewTechTitle: boolean;
 	let isInViewContactTitle: boolean = true;
-	let isHoneypotChecked: boolean = false;
 
 	const options: Options = {
 		unobserveOnEnter: true
@@ -71,38 +71,38 @@
 <div class="container">
 	<div>
 		<section
-			class="top-0 left-0 bg-[url('$lib/assets/svg/waves.svg')] h-[calc(100vh-3rem)] md:h-[calc(100vh-5rem)] w-screen bg-cover bg-no-repeat bg-center bg-fixed flex flex-col"
+			class="left-0 top-0 flex h-[calc(100vh-3rem)] w-screen flex-col bg-[url('$lib/assets/svg/waves.svg')] bg-cover bg-fixed bg-center bg-no-repeat md:h-[calc(100vh-5rem)]"
 		>
 			<section
-				class="top-0 left-0 flex sm:flex-row flex-col w-full h-[calc(100vh-3rem)] md:h-[calc(100vh-5rem)] mx-auto overflow-hidden z-0 justify-center items-center"
+				class="left-0 top-0 z-0 mx-auto flex h-[calc(100vh-3rem)] w-full flex-col items-center justify-center overflow-hidden sm:flex-row md:h-[calc(100vh-5rem)]"
 			>
 				<div
-					class="w-full h-full bg-transparent columns-6 inset-0 sm:top-[250px] top-[250px] lg:top-[250px] xl:top-[350px] sm:px-16 flex lg:flex-row flex-col items-center justify-center md:items-start z-0"
+					class="inset-0 top-[250px] z-0 flex h-full w-full columns-6 flex-col items-center justify-center bg-transparent sm:top-[250px] sm:px-16 md:items-start lg:top-[250px] lg:flex-row xl:top-[350px]"
 				>
 					<div
-						class="flex flex-col justify-center items-center w-full lg:h-full xs:mt-5 sm:mt-5 text-center md:text-left"
+						class="flex w-full flex-col items-center justify-center text-center sm:mt-5 md:text-left lg:h-full xs:mt-5"
 					>
 						<h1
-							class="h1 text-white lg:text-[80px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[90px] xs:text-center mt-6 lg:mt-2 uppercase w-full"
+							class="h1 mt-6 w-full text-[40px] uppercase text-white sm:text-[60px] lg:mt-2 lg:text-[80px] lg:leading-[90px] xs:text-center xs:text-[50px]"
 						>
-							Hi, I'm <span class="sm:text-[90px] text-[50px] font-mova font-extrabold uppercase"
+							Hi, I'm <span class="font-mova text-[50px] font-extrabold uppercase sm:text-[90px]"
 								>Mugi</span
 							>
 						</h1>
 						<p
-							class="text-white lg:text-[30px] sm:text-[26px] xs:text-[20px] text-[16px] leading-[25px] lg:leading-[40px] mt-6 lg:mt-2 w-full"
+							class="mt-6 w-full text-[16px] leading-[25px] text-white sm:text-[26px] lg:mt-2 lg:text-[30px] lg:leading-[40px] xs:text-[20px]"
 						>
 							I'm a fullstack developer who has experience with mobile, web and backend development.
 						</p>
 					</div>
-					<div class="flex col-span-1 row-span-2 justify-center items-center lg:h-full">
+					<div class="col-span-1 row-span-2 flex items-center justify-center lg:h-full">
 						<img class="w-full" src={profile} alt="mugi" />
 					</div>
 				</div>
 			</section>
-			<div class="flex justify-center items-center h-[90px]">
+			<div class="flex h-[90px] items-center justify-center">
 				<a href="#about" on:click|preventDefault={scrollIntoView}>
-					<svg class="arrows w-[60px] h-[72px]">
+					<svg class="arrows h-[72px] w-[60px]">
 						<path class="a1" d="M0 0 L30 32 L60 0" />
 						<path class="a2" d="M0 20 L30 52 L60 20" />
 						<path class="a3" d="M0 40 L30 72 L60 40" />
@@ -112,9 +112,9 @@
 		</section>
 	</div>
 
-	<section id="about" class="h-fit w-screen flex flex-col my-12">
+	<section id="about" class="my-12 flex h-fit w-screen flex-col">
 		<div
-			class="flex flex-row flex-wrap w-full place-content-start items-start"
+			class="flex w-full flex-row flex-wrap place-content-start items-start"
 			use:inview
 			on:inview_change={(event) => {
 				const { inView } = event.detail;
@@ -133,7 +133,7 @@
 		<svelte:component this={aboutMe} themeMode={$modeCurrent} />
 	</section>
 
-	<section id="services" class="h-fit w-screen flex flex-col">
+	<section id="services" class="flex h-fit w-screen flex-col">
 		<svelte:component
 			this={floatingTitle}
 			title="WHAT I DO"
@@ -143,7 +143,7 @@
 		/>
 
 		<div
-			class="flex flex-row flex-wrap w-full place-content-center items-center"
+			class="my-2 flex w-full flex-row flex-wrap place-content-center items-center gap-x-32 gap-y-6 md:gap-y-12"
 			use:inview={options}
 			on:inview_change={(event) => {
 				const { inView } = event.detail;
@@ -185,9 +185,9 @@
 		</div>
 	</section>
 
-	<!-- <section id="tech" class="h-fit w-screen flex flex-col">
+	<section id="tech" class="mb-5 flex h-fit w-screen flex-col">
 		<div
-			class="flex flex-row flex-wrap h-fit w-full place-content-start items-start mb-5"
+			class="flex h-fit w-full flex-row flex-wrap place-content-start items-start"
 			use:inview
 			on:inview_change={(event) => {
 				const { inView } = event.detail;
@@ -202,21 +202,14 @@
 				isVisible={isInViewTechTitle}
 			/>
 		</div>
-		<div
-			class="flex flex-row w-full place-content-center items-center"
-			use:inview={options}
-			on:inview_change={(event) => {
-				const { inView } = event.detail;
-				isInViewTech = inView;
-			}}
-		>
-			<svelte:component this={technology} isVisible={isInViewTech} />
+		<div class="flex w-full flex-row place-content-center items-center">
+			<svelte:component this={technology} />
 		</div>
-	</section> -->
+	</section>
 
-	<section id="experience" class="flex flex-col h-fit w-screen">
+	<section id="experience" class="flex h-fit w-screen flex-col">
 		<div
-			class="flex flex-row flex-wrap h-fit w-full place-content-start items-start mb-5"
+			class="mb-5 flex h-fit w-full flex-row flex-wrap place-content-start items-start"
 			use:inview
 			on:inview_change={(event) => {
 				const { inView } = event.detail;
@@ -234,9 +227,9 @@
 		<svelte:component this={timeline} />
 	</section>
 
-	<section id="contact" class="flex flex-col h-fit w-screen my-8">
-		<div class="flex flex-col card p4 m-5 bg-gradient-to-tr variant-gradient-tertiary-secondary">
-			<div class="flex flex-row flex-wrap w-full place-content-start items-start mt-5">
+	<section id="contact" class="my-8 flex h-fit w-screen flex-col">
+		<div class="p4 card variant-gradient-tertiary-secondary m-5 flex flex-col bg-gradient-to-tr">
+			<div class="mt-5 flex w-full flex-row flex-wrap place-content-start items-start">
 				<svelte:component
 					this={floatingTitle}
 					title="GET IN TOUCH"
@@ -275,7 +268,7 @@
 						<span>Name</span>
 						<input
 							name="name"
-							class="input peer focus:border-tertiary-500 focus:invalid:border-error-500 rounded-md text-token"
+							class="peer input text-token rounded-md focus:border-tertiary-500 focus:invalid:border-error-500"
 							type="text"
 							placeholder="Your name"
 							required
@@ -290,7 +283,7 @@
 						<span>Email</span>
 						<input
 							name="email"
-							class="input peer focus:border-tertiary-500 focus:invalid:border-error-500 rounded-md text-token"
+							class="peer input text-token rounded-md focus:border-tertiary-500 focus:invalid:border-error-500"
 							type="email"
 							placeholder="Your email"
 							autocomplete="email"
@@ -307,7 +300,7 @@
 
 				<label class="label m-5">
 					<span>What are you interested in?</span>
-					<select name="service" class="select rounded-md text-token" required>
+					<select name="service" class="select text-token rounded-md" required>
 						<option value="Crossplatform mobile application"
 							>Crossplatform mobile application</option
 						>
@@ -318,7 +311,7 @@
 					<span>Message</span>
 					<div class="flex flex-col">
 						<textarea
-							class="textarea peer focus:border-tertiary-500 focus:invalid:border-error-500 rounded-md text-token"
+							class="peer textarea text-token rounded-md focus:border-tertiary-500 focus:invalid:border-error-500"
 							rows="4"
 							required
 							minlength="50"
@@ -333,13 +326,13 @@
 						</span>
 					</div>
 				</label>
-				<div class="w-full flex flex-row items-center justify-center mb-2">
-				<Turnstile siteKey="0x4AAAAAAAevj-w71wPNa1Ya" bind:reset />
+				<div class="mb-2 flex w-full flex-row items-center justify-center">
+					<Turnstile siteKey="0x4AAAAAAAevj-w71wPNa1Ya" bind:reset />
 				</div>
 				<div
-					class="w-full flex flex-row items-center justify-center mb-5 group-invalid:pointer-events-none group-invalid:opacity-30 {active_class}"
+					class="mb-5 flex w-full flex-row items-center justify-center group-invalid:pointer-events-none group-invalid:opacity-30 {active_class}"
 				>
-					<button type="submit" class="btn variant-filled">
+					<button type="submit" class="variant-filled btn">
 						{#if loading}
 							<p>Sending</p>
 							<SyncLoader
@@ -379,18 +372,18 @@
 		</div>
 	</section>
 
-	<section id="socials" class="w-screen mb-6">
-		<div class="flex flex-row flex-wrap justify-center w-full gap-x-8 gap-y-2">
-			<div class="logo-cloud grid-cols-1 lg:!grid-cols-3 gap-0 [&>.logo-item]:variant-soft-surface">
+	<section id="socials" class="mb-6 w-screen">
+		<div class="flex w-full flex-row justify-center gap-x-8 gap-y-2">
+			<div class="logo-cloud grid-cols-1 gap-0 [&>.logo-item]:variant-soft-surface md:!grid-cols-3">
 				<a
-					class="logo-item !px-4 flex flex-row items-end justify-center text-xl text-token"
+					class="logo-item text-token flex flex-row items-end justify-center !px-4 text-xl"
 					href="mailto:mugikhan@gmail.com"
 				>
 					<AtSignIcon size="32" class="text-token mr-2" />
 					<p class="text-token text-xl/[32px]">Email</p>
 				</a>
 				<a
-					class="logo-item !px-4 flex flex-row items-end justify-center text-xl text-token"
+					class="logo-item text-token flex flex-row items-end justify-center !px-4 text-xl"
 					href="https://www.linkedin.com/in/mughees-khan-9261aa15b/"
 					target="_blank"
 				>
@@ -398,7 +391,7 @@
 					<p class="text-token text-xl/[26px]">LinkedIn</p>
 				</a>
 				<a
-					class="logo-item !px-4 flex flex-row items-end justify-center text-xl/[32px]"
+					class="logo-item flex flex-row items-end justify-center !px-4 text-xl/[32px]"
 					href="https://github.com/mugikhan"
 					target="_blank"
 				>

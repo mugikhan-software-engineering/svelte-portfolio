@@ -44,10 +44,20 @@ const entelectOM: Experience = {
 	subtitle: 'Old Mutual',
 	position: 'Intermediate Software Engineer',
 	description:
-		'Currently, I am employed at Old Mutual, where I actively contribute to the development of their SMEgo platform. Concurrently, I am enhancing my expertise in Flutter and Java, bettering my skill set to better serve the organization. The platform itself presents numerous challenges, compounded by demanding time constraints. Moreover, it faces the issue of legacy code that was inadequately implemented, necessitating substantial refactoring efforts.',
+		'My last project at Entelect was at OM, where I actively contributed to the development of their SMEgo platform. The platform itself presented numerous challenges, compounded by demanding time constraints. It also faced the issue of legacy code that was inadequately implemented, necessitating substantial refactoring efforts.',
 	dateFrom: 'JUN 2023',
-	dateTo: 'PRESENT',
+	dateTo: 'FEB 2024',
 	tech: ['Flutter', 'Dart', 'Java', 'Postgres', 'AWS', 'Jira', 'Confluence']
 };
 
-export { kopanoAi, dynexIt, entelectStdBank, entelectOM };
+const journeyApps: Experience = {
+	companyName: 'JourneyApps',
+	position: 'Product Engineer',
+	description:
+		'I am currently working at JourneyApps on their Backend DB to SQLite sync engine product. I am responsible for maintaining and improving various parts of the client SDKs using different languages and frameworks. I have worked across the Flutter, React Native, Web and Kotlin Multiplatform client SDKs. My responsibilities also included writing technical proposals for new solutions and blog posts about local storage. A significant achievement in my role has been in improving native Flutter plugins, including optimizing the PowerSync Flutter plugin.',
+	dateFrom: 'MARCH 2024',
+	dateTo: 'PRESENT',
+	tech: ['Flutter', 'SQLite', 'React Native', 'Typescript', 'Javascript', 'Wasm']
+};
+
+export { kopanoAi, dynexIt, entelectStdBank, entelectOM, journeyApps };
