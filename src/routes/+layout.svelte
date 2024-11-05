@@ -1,4 +1,5 @@
 <script lang="ts">
+	import '../app.css';
 	import '../app.postcss';
 
 	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
@@ -43,7 +44,7 @@
 
 	const modal: ModalSettings = {
 		type: 'alert',
-		title: 'For the love of my life, Ayesha <3',
+		title: 'For the love of my life, Ayesha ❤️',
 		modalClasses: 'text-center'
 	};
 
@@ -94,11 +95,11 @@
 </script>
 
 <Drawer>
-	<div class="flex flex-row justify-between items-center p-5 gap-3">
+	<div class="flex flex-row items-center justify-between gap-3 p-5">
 		<div class="flex-1">
 			<img
 				alt="The project logo"
-				class="h-auto xs:h-[30px] max-w-[280px] xxs:max-w-[140px]"
+				class="h-auto max-w-[280px] xxs:max-w-[140px] xs:h-[30px]"
 				src={logo}
 			/>
 		</div>
@@ -108,76 +109,78 @@
 				data-drawer-hide="drawer-navigation"
 				aria-controls="drawer-navigation"
 				on:click={closeDrawer}
-				class="btn-icon variant-ringed-tertiary text-black"
+				class="variant-ringed-tertiary btn-icon text-black"
 			>
 				<XIcon
 					size="32"
-					class="text-token dark:hover:bg-gray-600 dark:hover:text-white hover:bg-black-200 hover:text-slate-500"
-				/>
+					class="hover:bg-black-200 text-token hover:text-slate-500 dark:hover:bg-gray-600 dark:hover:text-white"
+				></XIcon>
 				<span class="sr-only">Close menu</span>
 			</button>
 		</div>
 	</div>
-	<div class="block absolute bottom-8 w-[calc(100%-50px)]">
-		<div class="flex flex-col justify-end grow py-4 overflow-y-auto self-end">
-			<ul class="font-medium flex flex-col space-y-12 pl-1 w-full">
+	<div class="absolute bottom-8 block w-[calc(100%-50px)]">
+		<div class="flex grow flex-col justify-end self-end overflow-y-auto py-4">
+			<ul class="flex w-full flex-col space-y-12 pl-1 font-medium">
 				<li>
 					<a
 						on:click={closeDrawer}
 						on:click|preventDefault={scrollIntoView}
-						class="flex flex-row items-center px-4 text-2xl block text-token rounded hover:text-slate-500 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+						class="text-token block flex flex-row items-center rounded px-4 text-2xl hover:text-slate-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
 						href="#about"
-						><BookOpenIcon size="32" class="text-token mr-4 hover:text-slate-500" />About</a
+						><BookOpenIcon size="32" class="text-token mr-4 hover:text-slate-500"
+						></BookOpenIcon>About</a
 					>
 				</li>
 				<li>
 					<a
 						on:click={closeDrawer}
 						on:click|preventDefault={scrollIntoView}
-						class="flex flex-row items-center px-4 text-2xl block text-token rounded hover:text-slate-500 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+						class="text-token block flex flex-row items-center rounded px-4 text-2xl hover:text-slate-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
 						href="#services"
-						><CodeIcon size="32" class="text-token mr-4 hover:text-slate-500" />Services</a
+						><CodeIcon size="32" class="text-token mr-4 hover:text-slate-500"></CodeIcon>Services</a
 					>
 				</li>
 				<li>
 					<a
 						on:click={closeDrawer}
 						on:click|preventDefault={scrollIntoView}
-						class="flex flex-row items-center px-4 text-2xl block text-token rounded hover:text-slate-500 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+						class="text-token block flex flex-row items-center rounded px-4 text-2xl hover:text-slate-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
 						href="#experience"
-						><ListIcon size="32" class="text-token mr-4 hover:text-slate-500" />Experience</a
+						><ListIcon size="32" class="text-token mr-4 hover:text-slate-500"
+						></ListIcon>Experience</a
 					>
 				</li>
 				<li>
 					<a
 						on:click={closeDrawer}
 						on:click|preventDefault={scrollIntoView}
-						class="flex flex-row items-center px-4 text-2xl block text-token rounded hover:text-slate-500 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+						class="text-token block flex flex-row items-center rounded px-4 text-2xl hover:text-slate-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
 						href="#contact"
-						><MailIcon size="32" class="text-token mr-4 hover:text-slate-500" />Contact</a
+						><MailIcon size="32" class="text-token mr-4 hover:text-slate-500"></MailIcon>Contact</a
 					>
 				</li>
 				<li
-					class="flex flex-row justify-end px-4 text-2xl block text-token rounded md:border-0 md:p-0"
+					class="text-token block flex flex-row justify-end rounded px-4 text-2xl md:border-0 md:p-0"
 				>
-					<LightSwitch />
+					<LightSwitch></LightSwitch>
 				</li>
 			</ul>
 		</div>
 	</div>
 </Drawer>
 
-<Toast />
-<Modal />
+<Toast></Toast>
+<Modal></Modal>
 
 <AppShell>
 	<svelte:fragment slot="header">
-		<AppBar gridColumns="grid-cols-3" slotDefault="place-self-start" slotTrail="place-content-end">
+		<AppBar gridcolumns="grid-cols-3" slotdefault="place-self-start" slottrail="place-content-end">
 			<svelte:fragment slot="lead"
 				><img alt="The project logo" src={logo} height="180" width="180" /></svelte:fragment
 			>
 			<svelte:fragment slot="trail">
-				<div class="hidden md:flex gap-5">
+				<div class="hidden gap-5 md:flex">
 					<a href="#about" on:click|preventDefault={scrollIntoView}>About</a>
 					<a href="#services" on:click|preventDefault={scrollIntoView}>Services</a>
 					<a href="#experience" on:click|preventDefault={scrollIntoView}>Experience</a>
@@ -187,13 +190,13 @@
 					<button
 						type="button"
 						data-collapse-toggle="#navbar-default"
-						class="md:hidden btn-icon variant-filled bg-slate-100 inline-flex items-center justify-center text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+						class="variant-filled btn-icon inline-flex items-center justify-center rounded-lg bg-slate-100 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden"
 						aria-controls="navbar-default"
 						aria-expanded="false"
 						on:click={openDrawer}
 						><span class="sr-only">Open main menu</span>
 						<svg
-							class="w-7 h-5"
+							class="h-5 w-7"
 							aria-hidden="true"
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
@@ -209,19 +212,19 @@
 						</svg></button
 					>
 				</div>
-				<div class="hidden md:flex gap-5">
-					<LightSwitch />
+				<div class="hidden gap-5 md:flex">
+					<LightSwitch></LightSwitch>
 				</div>
 			</svelte:fragment>
 		</AppBar>
 	</svelte:fragment>
-	<slot />
+	<slot></slot>
 	<svelte:fragment slot="pageFooter">
 		<button
-			class="flex flex-col md:flex-row justify-center items-center w-[100%] mb-1"
+			class="mb-1 flex w-[100%] flex-col items-center justify-center md:flex-row"
 			on:click={onFooterTap}
 		>
-			<div class="flex flex-col md:flex-row justify-center items-center">
+			<div class="flex flex-col items-center justify-center md:flex-row">
 				<p class="text-md">
 					Copyright © {currentYear}. All Rights Reserved. Website by Mugi Khan
 				</p>

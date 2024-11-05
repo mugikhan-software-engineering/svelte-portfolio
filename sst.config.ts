@@ -5,7 +5,7 @@ export default {
 	config(_input) {
 		return {
 			name: 'svelte-portfolio',
-			region: 'af-south-1',
+			region: 'us-east-1',
 			profile: _input.stage === 'prod' ? 'mugi-prod' : 'mugi-dev'
 		};
 	},

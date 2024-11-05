@@ -1,19 +1,44 @@
 <script lang="ts">
-	import { kopanoAi, dynexIt, entelectStdBank, entelectOM } from '$lib/experience';
+	import { kopanoAi, dynexIt, entelectStdBank, entelectOM, journeyApps } from '$lib/experience';
 	import experienceCard from '$lib/components/experience_card.svelte';
+
+	import code from '$lib/assets/svg/code-black.svg';
 </script>
 
 <div
-	class="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent"
+	class="relative space-y-8 before:absolute before:inset-0 before:ml-5 before:h-full before:w-0.5 before:-translate-x-px before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent md:before:mx-auto md:before:translate-x-0"
 >
 	<!-- Item #1 -->
 	<div
-		class="relative flex md:flex-row items-center justify-start md:items-center md:justify-between group is-active flex-wrap"
+		class="is-active group relative flex flex-wrap items-center justify-start md:flex-row md:items-center md:justify-between"
 	>
-		<svelte:component this={experienceCard} experience={entelectOM} order="order-2 md:order-1" />
+		<svelte:component this={experienceCard} experience={journeyApps} order="order-2 md:order-1" />
 		<!-- Icon -->
 		<div
-			class="flex items-center justify-center w-10 h-10 rounded-full bg-surface-50 shadow shrink-0 order-1 md:order-2 p-1"
+			class="order-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-surface-50 p-1 shadow md:order-2"
+		>
+			<img src={code} alt="code" />
+		</div>
+		<!-- Card -->
+		<div class="order-3 mx-5 hidden w-[calc(100%-4rem)] flex-1 rounded p-4 md:order-3 md:flex">
+			<div class="flex flex-row items-end justify-end space-x-2">
+				<div class="font-bold">
+					<time datetime="2018-04-01">{journeyApps.dateFrom}</time>
+					-
+					<time datetime="2018-10-30">{journeyApps.dateTo}</time>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Item #1 -->
+	<div
+		class="is-active group relative flex flex-wrap items-center justify-start md:flex-row md:items-center md:justify-between"
+	>
+		<svelte:component this={experienceCard} experience={entelectOM} order="order-2 md:order-3" />
+		<!-- Icon -->
+		<div
+			class="order-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-surface-50 p-1 shadow md:order-2"
 		>
 			<svg viewBox="0 0 128 128">
 				<g fill="#3FB6D3"
@@ -38,7 +63,9 @@
 			</svg>
 		</div>
 		<!-- Card -->
-		<div class="hidden md:flex flex-1 w-[calc(100%-4rem)] p-4 rounded mx-5 order-3 md:order-3">
+		<div
+			class="order-3 mx-5 hidden w-[calc(100%-4rem)] flex-1 items-end justify-end rounded p-4 md:order-1 md:flex"
+		>
 			<div class="flex flex-row items-end justify-end space-x-2">
 				<div class="font-bold">
 					<time datetime="2018-04-01">{entelectOM.dateFrom}</time>
@@ -51,10 +78,10 @@
 
 	<!-- Item #2 -->
 	<div
-		class="relative flex md:flex-row items-center justify-start md:items-center md:justify-between group is-active flex-wrap"
+		class="is-active group relative flex flex-wrap items-center justify-start md:flex-row md:items-center md:justify-between"
 	>
 		<div
-			class="hidden md:flex items-end justify-end flex-1 w-[calc(100%-4rem)] p-4 rounded mx-5 order-2 md:order-1"
+			class="order-2 mx-5 hidden w-[calc(100%-4rem)] flex-1 items-start justify-start rounded p-4 md:order-3 md:flex"
 		>
 			<div class="flex flex-row items-end justify-end space-x-2">
 				<div class="font-bold">
@@ -67,7 +94,7 @@
 
 		<!-- Icon -->
 		<div
-			class="flex items-center justify-center w-10 h-10 rounded-full bg-surface-50 text-white-500 shadow shrink-0 order-1 md:order-2 p-1"
+			class="text-white-500 order-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-surface-50 p-1 shadow md:order-2"
 		>
 			<svg
 				version="1.1"
@@ -103,18 +130,18 @@
 		<svelte:component
 			this={experienceCard}
 			experience={entelectStdBank}
-			order="order-3 md:order-3"
+			order="order-3 md:order-1"
 		/>
 	</div>
 
 	<!-- Item #3 -->
 	<div
-		class="relative flex md:flex-row items-center justify-start md:items-center md:justify-between group is-active flex-wrap"
+		class="is-active group relative flex flex-wrap items-center justify-start md:flex-row md:items-center md:justify-between"
 	>
-		<svelte:component this={experienceCard} experience={dynexIt} order="order-2 md:order-1" />
+		<svelte:component this={experienceCard} experience={dynexIt} order="order-2 md:order-3" />
 		<!-- Icon -->
 		<div
-			class="flex items-center justify-center w-10 h-10 rounded-full bg-surface-50 text-white-500 shadow shrink-0 order-1 md:order-2 p-1"
+			class="text-white-500 order-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-surface-50 p-1 shadow md:order-2"
 		>
 			<svg viewBox="0 0 128 128">
 				<g fill="#3FB6D3"
@@ -139,7 +166,9 @@
 			</svg>
 		</div>
 		<!-- Card -->
-		<div class="hidden md:flex flex-1 w-[calc(100%-4rem)] p-4 rounded mx-5 order-3 md:order-3">
+		<div
+			class="order-3 mx-5 hidden w-[calc(100%-4rem)] flex-1 items-end justify-end rounded p-4 md:order-1 md:flex"
+		>
 			<div class="flex items-center justify-between space-x-2">
 				<div class="font-bold">
 					<time datetime="2018-04-01">{dynexIt.dateFrom}</time>
@@ -151,13 +180,13 @@
 	</div>
 
 	<!-- Item #4 -->
-	<div
-		class="relative flex md:flex-row items-center justify-start md:items-center md:justify-between group is-active flex-wrap"
+	<!-- <div
+		class="is-active group relative flex flex-wrap items-center justify-start md:flex-row md:items-center md:justify-between"
 	>
-		<svelte:component this={experienceCard} experience={kopanoAi} order="order-3 md:order-3" />
-		<!-- Icon -->
-		<div
-			class="flex items-center justify-center w-10 h-10 rounded-full bg-surface-50 text-white-500 shadow shrink-0 order-1 md:order-2 p-1"
+		<svelte:component this={experienceCard} experience={kopanoAi} order="order-3 md:order-3" /> -->
+	<!-- Icon -->
+	<!-- <div
+			class="text-white-500 order-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-surface-50 p-1 shadow md:order-2"
 		>
 			<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path
@@ -171,10 +200,10 @@
 					fill="#53C1DE"
 				/>
 			</svg>
-		</div>
-		<!-- Card -->
-		<div
-			class="hidden items-end justify-end md:flex flex-1 w-[calc(100%-4rem)] p-4 rounded mx-5 order-2 md:order-1"
+		</div> -->
+	<!-- Card -->
+	<!-- <div
+			class="order-2 mx-5 hidden w-[calc(100%-4rem)] flex-1 items-end justify-end rounded p-4 md:order-1 md:flex"
 		>
 			<div class="flex flex-row items-end justify-end space-x-2">
 				<div class="font-bold">
@@ -184,5 +213,5 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 </div>
