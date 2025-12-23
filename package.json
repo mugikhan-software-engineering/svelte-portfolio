@@ -44,7 +44,7 @@
 		"svelte-check": "^4.3.3",
 		"svelte-kit-sst": "2.43.5",
 		"svelte-loading-spinners": "^0.3.6",
-		"tailwindcss": "^4.1.16",
+		"tailwindcss": "^4.1.18",
 		"tslib": "^2.8.1",
 		"typescript": "^5.9.0",
 		"unplugin-auto-import": "^20.2.0",
@@ -53,10 +53,10 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"highlight.js": "^11.9.0",
 		"@floating-ui/dom": "^1.7.4",
 		"@fontsource-variable/montserrat": "^5.2.8",
-		"@tailwindcss/vite": "^4.1.16",
+		"@tailwindcss/vite": "^4.1.18",
+		"highlight.js": "^11.9.0",
 		"svelte-french-toast": "^2.0.0-alpha.0",
 		"svelte-inview": "^4.0.4"
 	}
