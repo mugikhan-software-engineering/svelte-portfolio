@@ -15,26 +15,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Git clone the repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v5
       - name: Setup Node.js
-        # https://github.com/actions/setup-node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
-          node-version: 18.x
+          node-version: 24.x
           registry-url: 'https://registry.npmjs.org'
 
       - name: Configure aws credentials
-        uses: aws-actions/configure-aws-credentials@v2
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::542425556337:role/GitHub
           aws-region: af-south-1
 
-      - name: Make envfile
-        uses: SpicyPizza/create-envfile@v2.0
-        with:
-          envkey_CLOUDFLARE_SECRET_KEY: ${{ secrets.CLOUDFLARE_SECRET_KEY }}
-          fail_on_empty: false
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Set SST secrets
+        run: |
+          npx sst secret set CLOUDFLARE_SECRET_KEY ${{ secrets.CLOUDFLARE_SECRET_KEY }} --stage production
+
       - name: Deploy app
         run: |
-          npm i
-          npx sst deploy --stage prod
+          npx sst deploy --stage production

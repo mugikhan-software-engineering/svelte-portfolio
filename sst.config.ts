@@ -9,7 +9,7 @@ export default $config({
 			home: 'aws',
 			providers: {
 				aws: {
-					profile: input.stage === 'dev' ? 'mugi-dev' : 'mugi-dev',
+					profile: input.stage === 'dev' ? 'mugi-dev' : undefined,
 					region: 'af-south-1'
 				}
 			}
@@ -29,7 +29,8 @@ export default $config({
 			? new sst.aws.Router(routerName, {
 					domain: {
 						name: domain,
-						redirects: redirects
+						redirects: redirects,
+						dns: sst.aws.dns({ override: true })
 					}
 				})
 			: new sst.aws.Router(routerName);
