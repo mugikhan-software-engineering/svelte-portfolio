@@ -2,6 +2,7 @@
 	import '../app.css';
 
 	import Header from '$lib/components/header.svelte';
+	import InfoDialog from '$lib/components/info_dialog.svelte';
 
 	let { children } = $props();
 	const currentYear = new Date().getFullYear().toString();
@@ -31,7 +32,7 @@
 		>
 			<div class="flex flex-col items-center justify-center md:flex-row">
 				<p class="text-md">
-					Copyright © {currentYear}. All Rights Reserved. Website by Mugi Khan
+					Copyright © {currentYear}. All Rights Reserved. Website by <InfoDialog />
 				</p>
 			</div>
 		</button>

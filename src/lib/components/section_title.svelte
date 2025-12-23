@@ -5,7 +5,7 @@
 <div class="section-title">
 	<div class="title-eyebrow">
 		<span class="eyebrow-line"></span>
-		<span class="eyebrow-text">{title}</span>
+		<span class="eyebrow-text text-primary">{title}</span>
 		<span class="eyebrow-line"></span>
 	</div>
 	<h2 class="title-heading">{subtitle}</h2>
@@ -49,7 +49,6 @@
 		font-weight: 600;
 		letter-spacing: 0.2em;
 		text-transform: uppercase;
-		color: #5ba9fd;
 		white-space: nowrap;
 	}
 
@@ -70,4 +69,3 @@
 		margin: 0;
 	}
 </style>
-

@@ -64,6 +64,7 @@
 		<!-- Primary Services - Mobile & Web -->
 		<div class="primary-services">
 			{#each primaryServices as service, i (service.name)}
+				{@const Icon = service.icon}
 				<div
 					class="primary-card"
 					class:card-visible={isInView}
@@ -72,7 +73,7 @@
 					<div class="card-glow" style="--glow-color: {service.color}"></div>
 					<div class="card-header">
 						<div class="icon-wrapper" style="--icon-color: {service.color}">
-							<svelte:component this={service.icon} size={32} />
+							<Icon size={32} />
 						</div>
 						<h3 class="card-title">{service.name}</h3>
 					</div>
@@ -96,13 +97,14 @@
 			</div>
 			<div class="secondary-grid">
 				{#each secondaryServices as service, i (service.name)}
+					{@const Icon = service.icon}
 					<div
 						class="secondary-card"
 						class:card-visible={isInView}
 						style="--delay: {0.3 + i * 0.05}s; --card-color: {service.color}"
 					>
 						<div class="secondary-icon-wrapper" style="--icon-color: {service.color}">
-							<svelte:component this={service.icon} size={20} />
+							<Icon size={20} />
 						</div>
 						<span class="secondary-label">{service.name}</span>
 					</div>

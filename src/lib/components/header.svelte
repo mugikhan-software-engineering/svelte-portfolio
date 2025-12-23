@@ -29,25 +29,16 @@
 	<nav class="header-nav">
 		<!-- Logo -->
 		<a href="/" class="logo-link">
-			<img
-				alt="Mugi Khan - Fullstack Developer"
-				class="logo-img"
-				src={logo}
-				loading="eager"
-			/>
+			<img alt="Mugi Khan - Fullstack Developer" class="logo-img" src={logo} loading="eager" />
 		</a>
 
 		<!-- Desktop Navigation -->
 		<div class="desktop-nav">
-		{#each navLinks as link (link.href)}
-			<a
-				href={link.href}
-				use:scrollIntoView
-				class="nav-link"
-			>
-				{link.label}
-			</a>
-		{/each}
+			{#each navLinks as link (link.href)}
+				<a href={link.href} use:scrollIntoView class="nav-link hover:cursor-pointer">
+					{link.label}
+				</a>
+			{/each}
 		</div>
 
 		<!-- Mobile Menu Button -->
@@ -67,28 +58,24 @@
 
 	<!-- Mobile Navigation Overlay -->
 	{#if mobileMenuOpen}
-		<button
-			class="mobile-overlay"
-			onclick={closeMobileMenu}
-			aria-label="Close menu"
-		></button>
+		<button class="mobile-overlay" onclick={closeMobileMenu} aria-label="Close menu"></button>
 	{/if}
 
 	<!-- Mobile Navigation Panel -->
 	<div class="mobile-nav" class:mobile-nav-open={mobileMenuOpen}>
 		<div class="mobile-nav-content">
-		{#each navLinks as link, i (link.href)}
-			<a
-				href={link.href}
-				use:scrollIntoView
-				class="mobile-nav-link"
-				onclick={handleNavClick}
-				style="animation-delay: {i * 50}ms"
-			>
-				<span class="mobile-nav-number">0{i + 1}</span>
-				<span class="mobile-nav-label">{link.label}</span>
-			</a>
-		{/each}
+			{#each navLinks as link, i (link.href)}
+				<a
+					href={link.href}
+					use:scrollIntoView
+					class="mobile-nav-link"
+					onclick={handleNavClick}
+					style="animation-delay: {i * 50}ms"
+				>
+					<span class="mobile-nav-number">0{i + 1}</span>
+					<span class="mobile-nav-label">{link.label}</span>
+				</a>
+			{/each}
 		</div>
 	</div>
 </header>
@@ -212,8 +199,12 @@
 	}
 
 	@keyframes fadeIn {
-		from { opacity: 0; }
-		to { opacity: 1; }
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
 	}
 
 	/* Mobile Navigation Panel */
@@ -286,4 +277,3 @@
 		letter-spacing: 0.025em;
 	}
 </style>
-

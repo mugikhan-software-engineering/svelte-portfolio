@@ -1,17 +1,18 @@
 @import 'tailwindcss';
 
+@import '@skeletonlabs/skeleton';
+@import '@skeletonlabs/skeleton-svelte';
 @import '@skeletonlabs/skeleton/themes/terminus';
 
-@font-face {
-	font-family: 'Montserrat';
-	src: url('/fonts/Montserrat-VariableFont_wght.ttf');
-	font-display: swap;
+@import '@fontsource/montserrat';
+
+[data-theme='terminus'] {
+	--heading-font-family: 'Montserrat', sans-serif;
+	--base-font-family: 'Montserrat', sans-serif;
+	--anchor-font-family: 'inherit';
 }
 
-:root [data-theme='wintry'] {
-	--theme-font-family-base: 'Montserrat', sans-serif;
-	--theme-font-family-heading: 'Montserrat', sans-serif;
-}
+@custom-variant dark (&:where(.dark, .dark *));
 
 .bg-hero {
 	background-image: linear-gradient(

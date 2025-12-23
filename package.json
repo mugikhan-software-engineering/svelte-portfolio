@@ -61,6 +61,7 @@
 	"dependencies": {
 		"@floating-ui/dom": "^1.7.4",
 		"@fontsource-variable/montserrat": "^5.2.8",
+		"@fontsource/montserrat": "^5.2.8",
 		"@lucide/svelte": "^0.562.0",
 		"@tailwindcss/vite": "^4.1.18",
 		"highlight.js": "^11.9.0",
