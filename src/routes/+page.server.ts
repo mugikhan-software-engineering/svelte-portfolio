@@ -1,7 +1,7 @@
 import type { PageServerLoad } from './$types';
 import { fail } from '@sveltejs/kit';
 import type { Actions } from './$types';
-import { CLOUDFLARE_SECRET_KEY } from '$env/static/private';
+import { Resource } from 'sst';
 
 export const load = (async () => {
 	return {};
@@ -42,7 +42,7 @@ export const actions: Actions = {
 		const data = await request.formData();
 
 		const token = data.get('cf-turnstile-response') as string;
-		const secret = CLOUDFLARE_SECRET_KEY as string;
+		const secret = Resource.CLOUDFLARE_SECRET_KEY.value as string;
 
 		const { success, error } = await validateToken(token, secret);
 

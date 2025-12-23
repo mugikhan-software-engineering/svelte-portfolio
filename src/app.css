@@ -1,20 +1,11 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
-@import "@skeletonlabs/skeleton";
-
-@import "@skeletonlabs/skeleton/optional/presets";
-
-@import "@skeletonlabs/skeleton/themes/wintry";
+@import '@skeletonlabs/skeleton/themes/terminus';
 
 @font-face {
 	font-family: 'Montserrat';
 	src: url('/fonts/Montserrat-VariableFont_wght.ttf');
 	font-display: swap;
-}
-
-html,
-body {
-	@apply h-full overflow-hidden;
 }
 
 :root [data-theme='wintry'] {

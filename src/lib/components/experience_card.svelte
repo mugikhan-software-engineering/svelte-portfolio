@@ -15,7 +15,7 @@
 	<div class="mb-2">{experience.position}</div>
 	<div class="mb-1">{experience.description}</div>
 	<div class="flex flex-row flex-wrap gap-x-1 gap-y-1 mb-1">
-		{#each experience.tech as technology}
+		{#each experience.tech as technology (technology)}
 			<span class="chip preset-outlined-primary-500 rounded-md">{technology}</span>
 		{/each}
 	</div>

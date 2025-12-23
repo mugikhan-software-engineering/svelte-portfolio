@@ -3,18 +3,18 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"dev": "sst bind vite dev --profile mugi-dev",
 		"build": "vite build",
-		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"lint": "prettier --plugin-search-dir . --check . && eslint .",
-		"format": "prettier --plugin-search-dir . --write .",
-		"sst:deploy": "sst deploy",
-		"sst:dev": "sst dev --profile mugi-dev",
+		"dev": "vite dev",
 		"devv": "vavite-loader vite dev",
-		"test": "sst bind vitest run",
-		"sso": "aws sso login --sso-session=mugi"
+		"format": "prettier --plugin-search-dir . --write .",
+		"lint": "prettier --plugin-search-dir . --check . && eslint .",
+		"preview": "vite preview",
+		"sso": "aws sso login --sso-session=mugi",
+		"sst:deploy": "sst deploy --stage dev",
+		"sst:dev": "sst dev --stage dev",
+		"test": "sst bind vitest run"
 	},
 	"devDependencies": {
 		"@aws-sdk/client-sesv2": "^3.922.0",
@@ -39,6 +39,7 @@
 		"aws-cdk-lib": "2.221.0",
 		"constructs": "10.4.0",
 		"eslint": "^9.39.1",
+		"eslint-config-prettier": "^10.1.8",
 		"eslint-plugin-svelte": "^3.13.1",
 		"globals": "^16.5.0",
 		"prettier-plugin-svelte": "^3.4.0",
@@ -47,6 +48,7 @@
 		"svelte-check": "^4.3.3",
 		"svelte-kit-sst": "2.43.5",
 		"svelte-loading-spinners": "^0.3.6",
+		"svelte-turnstile": "^0.11.0",
 		"tailwindcss": "^4.1.18",
 		"tslib": "^2.8.1",
 		"typescript": "^5.9.0",
@@ -59,9 +61,12 @@
 	"dependencies": {
 		"@floating-ui/dom": "^1.7.4",
 		"@fontsource-variable/montserrat": "^5.2.8",
+		"@lucide/svelte": "^0.562.0",
 		"@tailwindcss/vite": "^4.1.18",
 		"highlight.js": "^11.9.0",
+		"sst": "3.17.25",
 		"svelte-french-toast": "^2.0.0-alpha.0",
-		"svelte-inview": "^4.0.4"
+		"svelte-inview": "^4.0.4",
+		"svelte-kit-sst": "2.43.5"
 	}
 }
