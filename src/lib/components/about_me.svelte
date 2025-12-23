@@ -1,7 +1,5 @@
 <script lang="ts">
-	import { CodeBlock } from '@skeletonlabs/skeleton';
-
-	export let themeMode: boolean;
+		export let themeMode: boolean;
 </script>
 
 <div class="w-full px-6 my-3">

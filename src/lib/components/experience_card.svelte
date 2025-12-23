@@ -6,7 +6,7 @@
 </script>
 
 <div
-	class="flex-1 w-[calc(100%-4rem)] card card-hover p-4 variant-soft-primary rounded border-white shadow-md mx-5 my-4 {order}"
+	class="flex-1 w-[calc(100%-4rem)] card card-hover p-4 preset-tonal-primary rounded border-white shadow-md mx-5 my-4 {order}"
 >
 	<div class="flex items-center justify-between space-x-2 mb-1">
 		<div class="font-bold">{experience.companyName}</div>
@@ -16,7 +16,7 @@
 	<div class="mb-1">{experience.description}</div>
 	<div class="flex flex-row flex-wrap gap-x-1 gap-y-1 mb-1">
 		{#each experience.tech as technology}
-			<span class="chip variant-ringed-primary rounded-md">{technology}</span>
+			<span class="chip preset-outlined-primary-500 rounded-md">{technology}</span>
 		{/each}
 	</div>
 

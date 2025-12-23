@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@import "@skeletonlabs/skeleton";
+
+@import "@skeletonlabs/skeleton/optional/presets";
+
+@import "@skeletonlabs/skeleton/themes/wintry";
+
 @font-face {
 	font-family: 'Montserrat';
 	src: url('/fonts/Montserrat-VariableFont_wght.ttf');

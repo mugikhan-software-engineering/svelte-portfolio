@@ -2,29 +2,15 @@
 	import '../app.css';
 	import '../app.postcss';
 
-	import { AppShell, AppBar } from '@skeletonlabs/skeleton';
+	import { AppBar, ToastProvider } from '@skeletonlabs/skeleton-svelte';
 
 	import logo from '$lib/assets/white-logo-background.webp';
-
-	import {
-		initializeStores,
-		Toast,
-		LightSwitch,
-		storeHighlightJs,
-		Drawer,
-		getDrawerStore,
-		setModeCurrent,
-		getModeOsPrefers,
-		Modal,
-		getModalStore
-	} from '@skeletonlabs/skeleton';
-
 	import type {
 		DrawerSettings,
 		DrawerStore,
 		ModalStore,
 		ModalSettings
-	} from '@skeletonlabs/skeleton';
+	} from '@skeletonlabs/skeleton-svelte';
 
 	import { onMount } from 'svelte';
 	import { hljs } from '$lib/utils/highlight_setup';
@@ -79,7 +65,7 @@
 	const drawerSettings: DrawerSettings = {
 		id: 'drawer-nav',
 		// bgDrawer: '!bg-slate-100',
-		bgBackdrop: '!variant-soft',
+		bgBackdrop: '!preset-tonal',
 		width: 'xs:w-[calc(100%-30px)] sm:w-[calc(100%-40px)] md:w-[480px]',
 		padding: 'pr-4',
 		rounded: 'rounded-lg'
@@ -109,11 +95,11 @@
 				data-drawer-hide="drawer-navigation"
 				aria-controls="drawer-navigation"
 				on:click={closeDrawer}
-				class="variant-ringed-tertiary btn-icon text-black"
+				class="preset-outlined-tertiary-500 btn-icon text-black"
 			>
 				<XIcon
 					size="32"
-					class="hover:bg-black-200 text-token hover:text-slate-500 dark:hover:bg-gray-600 dark:hover:text-white"
+					class="hover:bg-black-200 base-font-color hover:text-slate-500 dark:hover:bg-gray-600 dark:hover:text-white"
 				></XIcon>
 				<span class="sr-only">Close menu</span>
 			</button>
@@ -126,10 +112,10 @@
 					<a
 						on:click={closeDrawer}
 						on:click|preventDefault={scrollIntoView}
-						class="text-token block flex flex-row items-center rounded px-4 text-2xl hover:text-slate-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
+						class="base-font-color block flex flex-row items-center rounded px-4 text-2xl hover:text-slate-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
 						href="#about"
 						aria-label="More about me"
-						><BookOpenIcon size="32" class="text-token mr-4 hover:text-slate-500"
+						><BookOpenIcon size="32" class="base-font-color mr-4 hover:text-slate-500"
 						></BookOpenIcon>About</a
 					>
 				</li>
@@ -137,20 +123,20 @@
 					<a
 						on:click={closeDrawer}
 						on:click|preventDefault={scrollIntoView}
-						class="text-token block flex flex-row items-center rounded px-4 text-2xl hover:text-slate-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
+						class="base-font-color block flex flex-row items-center rounded px-4 text-2xl hover:text-slate-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
 						href="#services"
 						aria-label="Services I provide"
-						><CodeIcon size="32" class="text-token mr-4 hover:text-slate-500"></CodeIcon>Services</a
+						><CodeIcon size="32" class="base-font-color mr-4 hover:text-slate-500"></CodeIcon>Services</a
 					>
 				</li>
 				<li>
 					<a
 						on:click={closeDrawer}
 						on:click|preventDefault={scrollIntoView}
-						class="text-token block flex flex-row items-center rounded px-4 text-2xl hover:text-slate-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
+						class="base-font-color block flex flex-row items-center rounded px-4 text-2xl hover:text-slate-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
 						href="#experience"
 						aria-label="Experience in the industry"
-						><ListIcon size="32" class="text-token mr-4 hover:text-slate-500"
+						><ListIcon size="32" class="base-font-color mr-4 hover:text-slate-500"
 						></ListIcon>Experience</a
 					>
 				</li>
@@ -158,14 +144,14 @@
 					<a
 						on:click={closeDrawer}
 						on:click|preventDefault={scrollIntoView}
-						class="text-token block flex flex-row items-center rounded px-4 text-2xl hover:text-slate-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
+						class="base-font-color block flex flex-row items-center rounded px-4 text-2xl hover:text-slate-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:border-0 md:p-0 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:bg-transparent md:dark:hover:text-blue-500"
 						href="#contact"
 						aria-label="Contact me via email"
-						><MailIcon size="32" class="text-token mr-4 hover:text-slate-500"></MailIcon>Contact</a
+						><MailIcon size="32" class="base-font-color mr-4 hover:text-slate-500"></MailIcon>Contact</a
 					>
 				</li>
 				<li
-					class="text-token block flex flex-row justify-end rounded px-4 text-2xl md:border-0 md:p-0"
+					class="base-font-color block flex flex-row justify-end rounded px-4 text-2xl md:border-0 md:p-0"
 				>
 					<LightSwitch></LightSwitch>
 				</li>
@@ -174,7 +160,7 @@
 	</div>
 </Drawer>
 
-<Toast></Toast>
+<ToastProvider></ToastProvider>
 <Modal></Modal>
 
 <AppShell>
@@ -194,7 +180,7 @@
 					<button
 						type="button"
 						data-collapse-toggle="#navbar-default"
-						class="variant-filled btn-icon inline-flex items-center justify-center rounded-lg bg-slate-100 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden"
+						class="preset-filled btn-icon inline-flex items-center justify-center rounded-lg bg-slate-100 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden"
 						aria-controls="navbar-default"
 						aria-expanded="false"
 						on:click={openDrawer}

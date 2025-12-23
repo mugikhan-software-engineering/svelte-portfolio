@@ -10,13 +10,13 @@
 
 {#if isVisible}
 	<div
-		class="card variant-ghost-primary text-token flex w-56 flex-col items-center justify-center p-8 md:w-60 md:p-6"
+		class="card preset-tonal-primary border border-primary-500 base-font-color flex w-56 flex-col items-center justify-center p-8 md:w-60 md:p-6"
 		transition:fly={{ delay: delay, duration: 750, x: xOffset, opacity: 0 }}
 	>
 		<img src={assetPath} alt="service" class="h-24 w-24 md:h-40 md:w-40" />
 		<footer class="card-footer">
 			<p
-				class="leading-sm lg:leading-xl sm:text-md xs:text-md text-token mt-6 w-full text-center text-lg lg:mt-2"
+				class="leading-sm lg:leading-xl sm:text-md xs:text-md base-font-color mt-6 w-full text-center text-lg lg:mt-2"
 			>
 				{title}
 			</p>

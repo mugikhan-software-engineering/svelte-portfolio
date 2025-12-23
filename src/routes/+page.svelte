@@ -12,10 +12,9 @@
 	import { inview, type Options } from 'svelte-inview';
 
 	import { SyncLoader } from 'svelte-loading-spinners';
-	import { getToastStore, modeCurrent } from '@skeletonlabs/skeleton';
 	import { GithubIcon, LinkedinIcon, AtSignIcon } from 'svelte-feather-icons';
 
-	import type { ToastSettings } from '@skeletonlabs/skeleton';
+	import type { ToastSettings } from '@skeletonlabs/skeleton-svelte';
 	import { Turnstile } from 'svelte-turnstile';
 
 	let isInViewCards: boolean;
@@ -44,7 +43,7 @@
 	const showSuccessToast = (message: any) => {
 		const t: ToastSettings = {
 			message: message as string,
-			background: 'variant-filled-success',
+			background: 'preset-filled-success-500',
 			timeout: 2000
 		};
 		toastStore.trigger(t);
@@ -53,7 +52,7 @@
 	const showErrorToast = (message: any) => {
 		const t: ToastSettings = {
 			message: message as string,
-			background: 'variant-filled-error',
+			background: 'preset-filled-error-500',
 			timeout: 2000
 		};
 		toastStore.trigger(t);
@@ -228,7 +227,7 @@
 	</section>
 
 	<section id="contact" class="my-8 flex h-fit w-screen flex-col">
-		<div class="p4 card variant-gradient-tertiary-secondary m-5 flex flex-col bg-gradient-to-tr">
+		<div class="p4 card from-tertiary-500 to-secondary-500 m-5 flex flex-col bg-gradient-to-tr">
 			<div class="mt-5 flex w-full flex-row flex-wrap place-content-start items-start">
 				<svelte:component
 					this={floatingTitle}
@@ -268,7 +267,7 @@
 						<span>Name</span>
 						<input
 							name="name"
-							class="peer input text-token rounded-md focus:border-tertiary-500 focus:invalid:border-error-500"
+							class="peer input base-font-color rounded-md focus:border-tertiary-500 focus:invalid:border-error-500"
 							type="text"
 							placeholder="Your name"
 							required
@@ -283,7 +282,7 @@
 						<span>Email</span>
 						<input
 							name="email"
-							class="peer input text-token rounded-md focus:border-tertiary-500 focus:invalid:border-error-500"
+							class="peer input base-font-color rounded-md focus:border-tertiary-500 focus:invalid:border-error-500"
 							type="email"
 							placeholder="Your email"
 							autocomplete="email"
@@ -300,7 +299,7 @@
 
 				<label class="label m-5">
 					<span>What are you interested in?</span>
-					<select name="service" class="select text-token rounded-md" required>
+					<select name="service" class="select base-font-color rounded-md" required>
 						<option value="Crossplatform mobile application"
 							>Crossplatform mobile application</option
 						>
@@ -311,7 +310,7 @@
 					<span>Message</span>
 					<div class="flex flex-col">
 						<textarea
-							class="peer textarea text-token rounded-md focus:border-tertiary-500 focus:invalid:border-error-500"
+							class="peer textarea base-font-color rounded-md focus:border-tertiary-500 focus:invalid:border-error-500"
 							rows="4"
 							required
 							minlength="50"
@@ -332,7 +331,7 @@
 				<div
 					class="mb-5 flex w-full flex-row items-center justify-center group-invalid:pointer-events-none group-invalid:opacity-30 {active_class}"
 				>
-					<button type="submit" class="variant-filled btn">
+					<button type="submit" class="preset-filled btn">
 						{#if loading}
 							<p>Sending</p>
 							<SyncLoader
@@ -374,29 +373,29 @@
 
 	<section id="socials" class="mb-6 w-screen">
 		<div class="flex w-full flex-row justify-center gap-x-8 gap-y-2">
-			<div class="logo-cloud grid-cols-1 gap-0 [&>.logo-item]:variant-soft-surface md:!grid-cols-3">
+			<div class="logo-cloud grid-cols-1 gap-0 [&>.logo-item]:preset-tonal-surface md:!grid-cols-3">
 				<a
-					class="logo-item text-token flex flex-row items-end justify-center !px-4 text-xl"
+					class="logo-item base-font-color flex flex-row items-end justify-center !px-4 text-xl"
 					href="mailto:mugikhan@gmail.com"
 				>
-					<AtSignIcon size="32" class="text-token mr-2" />
-					<p class="text-token text-xl/[32px]">Email</p>
+					<AtSignIcon size="32" class="base-font-color mr-2" />
+					<p class="base-font-color text-xl/[32px]">Email</p>
 				</a>
 				<a
-					class="logo-item text-token flex flex-row items-end justify-center !px-4 text-xl"
+					class="logo-item base-font-color flex flex-row items-end justify-center !px-4 text-xl"
 					href="https://www.linkedin.com/in/mughees-khan-9261aa15b/"
 					target="_blank"
 				>
-					<LinkedinIcon size="32" class="text-token mr-2" />
-					<p class="text-token text-xl/[26px]">LinkedIn</p>
+					<LinkedinIcon size="32" class="base-font-color mr-2" />
+					<p class="base-font-color text-xl/[26px]">LinkedIn</p>
 				</a>
 				<a
 					class="logo-item flex flex-row items-end justify-center !px-4 text-xl/[32px]"
 					href="https://github.com/mugikhan"
 					target="_blank"
 				>
-					<GithubIcon size="32" class="text-token" />
-					<p class="text-token text-xl/[32px]">GitHub</p>
+					<GithubIcon size="32" class="base-font-color" />
+					<p class="base-font-color text-xl/[32px]">GitHub</p>
 				</a>
 			</div>
 		</div>
