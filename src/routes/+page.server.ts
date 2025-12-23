@@ -1,7 +1,7 @@
 import type { PageServerLoad } from './$types';
 import { fail } from '@sveltejs/kit';
 import type { Actions } from './$types';
-import { CLOUDFLARE_SECRET_KEY } from '$env/static/private';
+import { Resource } from 'sst';
 
 export const load = (async () => {
 	return {};
@@ -38,11 +38,11 @@ async function validateToken(token: string, secret: string) {
 }
 
 export const actions: Actions = {
-	sendEmail: async ({ cookies, request }) => {
+	sendEmail: async ({ request }) => {
 		const data = await request.formData();
 
 		const token = data.get('cf-turnstile-response') as string;
-		const secret = CLOUDFLARE_SECRET_KEY as string;
+		const secret = Resource.CLOUDFLARE_SECRET_KEY.value as string;
 
 		const { success, error } = await validateToken(token, secret);
 
@@ -53,29 +53,47 @@ export const actions: Actions = {
 			});
 		}
 
-		const email = {
-			name: data.get('name'),
-			email: data.get('email'),
-			service: data.get('service'),
-			message: data.get('message')
+		const contactFormData = {
+			name: data.get('name')?.toString() ?? '',
+			email: data.get('email')?.toString() ?? '',
+			service: data.get('service')?.toString() ?? '',
+			message: data.get('message')?.toString() ?? ''
 		};
-		if (!email.email || !email.name || !email.message) {
+		if (
+			!contactFormData.email ||
+			!contactFormData.name ||
+			!contactFormData.message ||
+			!contactFormData.service
+		) {
 			return fail(422, {
-				description: 'Enter a name, email and message',
-				error: 'no values'
+				description: 'Please fill in all fields',
+				error: 'missing values'
 			});
 		}
 		try {
-			const response = await fetch(
-				'https://li26aztkmi.execute-api.af-south-1.amazonaws.com/portfolio/portfolio-contact-form',
-				{
-					method: 'POST',
-					body: JSON.stringify(email)
+			const apiUrl = `${Resource.api.url}/send-email`;
+
+			const response = await fetch(apiUrl, {
+				method: 'POST',
+				body: JSON.stringify(contactFormData),
+				headers: {
+					'Content-Type': 'application/json'
 				}
-			);
-			const json = await response.json();
-			return json;
-		} catch (e) {
+			});
+			const responseMessage = await response.text();
+
+			if (!response.ok) {
+				return fail(response.status, {
+					description: 'Failed to send your message. Please try again.',
+					error: responseMessage
+				});
+			}
+
+			return {
+				success: true,
+				description: responseMessage
+			};
+		} catch {
 			return fail(400, {
 				description: 'Failed to send email, Try again later.',
 				error: 'error'

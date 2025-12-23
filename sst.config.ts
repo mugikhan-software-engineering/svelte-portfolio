@@ -1,37 +1,55 @@
-import type { SSTConfig } from 'sst';
-import { SvelteKitSite, Api, StackContext } from 'sst/constructs';
+/// <reference path="./.sst/platform/config.d.ts" />
 
-export default {
-	config(_input) {
+export default $config({
+	app(input) {
 		return {
 			name: 'svelte-portfolio',
-			region: 'af-south-1',
-			profile: _input.stage === 'prod' ? 'mugi-prod' : 'mugi-dev'
+			removal: input?.stage === 'production' ? 'retain' : 'remove',
+			protect: ['production'].includes(input?.stage),
+			home: 'aws',
+			providers: {
+				aws: {
+					profile: input.stage === 'dev' ? 'mugi-dev' : undefined,
+					region: 'af-south-1'
+				}
+			}
 		};
 	},
-	stacks(app) {
-		app.stack(function Site({ stack }: StackContext) {
-			// const api = new Api(stack, 'api', {
-			// 	routes: {
-			// 		'POST /send-email': 'packages/functions/src/send_email.handler'
-			// 	}
-			// 	customDomain: {
-			// 		domainName: 'api.mugikhan.com'
-			// 	}
-			// });
-			// api.attachPermissions(['ses:SendTemplatedEmail']);
-			const site = new SvelteKitSite(stack, 'site', {
-				customDomain: {
-					domainName: stack.stage === 'prod' ? 'mugikhan.com' : `${stack.stage}.mugikhan.com`,
-					domainAlias:
-						stack.stage === 'prod' ? 'www.mugikhan.com' : `www.${stack.stage}.mugikhan.com`
-				}
-				// bind: [api]
-			});
-			stack.addOutputs({
-				// ApiUrl: api.customDomainUrl || api.url,
-				SiteUrl: site.customDomainUrl || site.url
-			});
+	async run() {
+		const { allSecrets } = await import('./infra/secrets');
+		const { email } = await import('./infra/email');
+		const { api } = await import('./infra/api');
+
+		const domain = $app.stage === 'production' ? 'mugikhan.com' : `${$app.stage}.mugikhan.com`;
+		const routerName = $app.stage === 'production' ? 'Portfolio' : 'router';
+		const redirects = $app.stage === 'production' ? [`www.${domain}`] : undefined;
+		const isPermanentStage = ['production'].includes($app.stage);
+
+		const router = isPermanentStage
+			? new sst.aws.Router(routerName, {
+					domain: {
+						name: domain,
+						redirects: redirects,
+						dns: sst.aws.dns({ override: true })
+					}
+				})
+			: new sst.aws.Router(routerName);
+
+		let links: any[] = [];
+		if (isPermanentStage) {
+			links = [...allSecrets, api, email];
+		} else {
+			links = [...allSecrets];
+		}
+
+		new sst.aws.SvelteKit('site', {
+			router: {
+				instance: router
+			},
+			link: links,
+			environment: {
+				VITE_API_URL: api.url
+			}
 		});
 	}
-} satisfies SSTConfig;
+});
