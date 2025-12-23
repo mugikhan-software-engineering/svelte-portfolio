@@ -1,9 +1,5 @@
 import { join } from 'path';
-import type { Config } from 'tailwindcss';
-import { skeleton } from '@skeletonlabs/tw-plugin';
 import forms from '@tailwindcss/forms';
-import defaultTheme from 'tailwindcss/defaultTheme';
-import typography from '@tailwindcss/typography';
 
 const config = {
 	darkMode: 'class',
@@ -14,7 +10,7 @@ const config = {
 	theme: {
 		extend: {
 			fontFamily: {
-				sans: ['Monsterrat', ...defaultTheme.fontFamily.sans]
+				sans: ['Monsterrat']
 			},
 			screens: {
 				xxs: { max: '290px' },
@@ -24,24 +20,7 @@ const config = {
 	},
 	plugins: [
 		forms,
-		typography,
-		skeleton({
-			themes: {
-				preset: [
-					{ name: 'crimson', enhancements: true },
-					{ name: 'gold-nouveau', enhancements: true },
-					{ name: 'hamlindigo', enhancements: true },
-					{ name: 'modern', enhancements: true },
-					{ name: 'rocket', enhancements: true },
-					{ name: 'sahara', enhancements: true },
-					{ name: 'seafoam', enhancements: true },
-					{ name: 'skeleton', enhancements: true },
-					{ name: 'vintage', enhancements: true },
-					{ name: 'wintry', enhancements: true }
-				]
-			}
-		})
 	]
-} satisfies Config;
+};
 
 export default config;
