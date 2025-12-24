@@ -26,15 +26,14 @@ export default $config({
 		const isPermanentStage = ['production'].includes($app.stage);
 
 		const router = isPermanentStage
-			? new sst.aws.Router(routerName)
-			: // {
-				// 	domain: {
-				// 		name: domain,
-				// 		redirects: redirects,
-				// 		dns: sst.aws.dns({ override: true })
-				// 	}
-				// })
-				new sst.aws.Router(routerName);
+			? new sst.aws.Router(routerName, {
+					domain: {
+						name: domain,
+						redirects: redirects,
+						dns: sst.aws.dns({ override: true })
+					}
+				})
+			: new sst.aws.Router(routerName);
 
 		let links: any[] = [];
 		if (isPermanentStage) {
