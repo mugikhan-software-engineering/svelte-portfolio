@@ -43,7 +43,7 @@ export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayPr
 			ReplyToAddresses: [email],
 			Content: {
 				Template: {
-					TemplateName: 'PortfolioTemplate',
+					TemplateName: 'PortfolioRequest2026',
 					TemplateData: JSON.stringify({
 						name: name,
 						service: service,
