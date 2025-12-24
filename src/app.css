@@ -1,3 +1,76 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import 'tailwindcss';
+
+@import '@skeletonlabs/skeleton';
+@import '@skeletonlabs/skeleton-svelte';
+@import '@skeletonlabs/skeleton/themes/terminus';
+
+@import '@fontsource/montserrat';
+
+[data-theme='terminus'] {
+	--heading-font-family: 'Montserrat', sans-serif;
+	--base-font-family: 'Montserrat', sans-serif;
+	--anchor-font-family: 'inherit';
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+.bg-hero {
+	background-image: linear-gradient(
+		135deg,
+		rgba(244, 244, 246, 0.8) 60%,
+		rgba(10, 10, 10, 0.95) 60%
+	);
+}
+
+.arrows path {
+	stroke: #9d0aff;
+	fill: transparent;
+	stroke-width: 1px;
+	animation: arrow 2s infinite;
+	-webkit-animation: arrow 2s infinite;
+}
+
+@keyframes arrow {
+	0% {
+		opacity: 0;
+	}
+	40% {
+		opacity: 1;
+	}
+	80% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@-webkit-keyframes arrow /*Safari and Chrome*/ {
+	0% {
+		opacity: 0;
+	}
+	40% {
+		opacity: 1;
+	}
+	80% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+.arrows path.a1 {
+	animation-delay: -1s;
+	-webkit-animation-delay: -1s; /* Safari 和 Chrome */
+}
+
+.arrows path.a2 {
+	animation-delay: -0.5s;
+	-webkit-animation-delay: -0.5s; /* Safari 和 Chrome */
+}
+
+.arrows path.a3 {
+	animation-delay: 0s;
+	-webkit-animation-delay: 0s; /* Safari 和 Chrome */
+}

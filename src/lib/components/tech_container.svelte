@@ -9,6 +9,6 @@
 	<img src={imageUrl} alt={imageAlt} class="flex-1 object-contain object-center p-5" />
 
 	<div class="flex-0 place-content-center items-center">
-		<h1 class="text-md text-token font-bold">{imageAlt}</h1>
+		<h1 class="text-md base-font-color font-bold">{imageAlt}</h1>
 	</div>
 </div>

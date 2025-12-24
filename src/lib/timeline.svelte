@@ -1,12 +1,14 @@
 <script lang="ts">
-	import { kopanoAi, dynexIt, entelectStdBank, entelectOM, journeyApps } from '$lib/experience';
+	import { dynexIt, entelectStdBank, entelectOM, journeyApps } from '$lib/experience';
 	import experienceCard from '$lib/components/experience_card.svelte';
+
+	import { Briefcase, Code } from '@lucide/svelte';
 
 	import code from '$lib/assets/svg/code-black.svg';
 </script>
 
 <div
-	class="relative space-y-8 before:absolute before:inset-0 before:ml-5 before:h-full before:w-0.5 before:-translate-x-px before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent md:before:mx-auto md:before:translate-x-0"
+	class="relative space-y-8 py-4 before:absolute before:inset-0 before:ml-5 before:h-full before:w-0.5 before:-translate-x-px before:bg-linear-to-b before:from-transparent before:via-[#5ba9fd] before:to-transparent md:before:ml-0 md:before:left-1/2 md:before:-translate-x-1/2"
 >
 	<!-- Item #1 -->
 	<div
@@ -15,16 +17,20 @@
 		<svelte:component this={experienceCard} experience={journeyApps} order="order-2 md:order-1" />
 		<!-- Icon -->
 		<div
-			class="order-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-surface-50 p-1 shadow md:order-2"
+			class="order-1 z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-linear-to-br from-[rgba(22,19,35,0.95)] to-[rgba(15,12,28,0.98)] border-2 border-primary-50-950 p-2 shadow-lg md:order-2"
 		>
-			<img src={code} alt="code" />
+			<Code size={24} class="text-white" />
 		</div>
 		<!-- Card -->
-		<div class="order-3 mx-5 hidden w-[calc(100%-4rem)] flex-1 rounded p-4 md:order-3 md:flex">
-			<div class="flex flex-row items-end justify-end space-x-2">
-				<div class="font-bold">
+		<div
+			class="order-3 mx-5 hidden w-[calc(100%-4rem)] flex-1 items-center justify-end rounded p-4 md:order-3 md:flex"
+		>
+			<div
+				class="flex items-center gap-2 rounded-lg bg-[rgba(91,169,253,0.1)] border border-[rgba(91,169,253,0.2)] px-4 py-2"
+			>
+				<div class="text-sm font-semibold text-white">
 					<time datetime="2018-04-01">{journeyApps.dateFrom}</time>
-					-
+					<span class="mx-2 text-[#5ba9fd]">→</span>
 					<time datetime="2018-10-30">{journeyApps.dateTo}</time>
 				</div>
 			</div>
@@ -38,38 +44,20 @@
 		<svelte:component this={experienceCard} experience={entelectOM} order="order-2 md:order-3" />
 		<!-- Icon -->
 		<div
-			class="order-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-surface-50 p-1 shadow md:order-2"
+			class="order-1 z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-linear-to-br from-[rgba(22,19,35,0.95)] to-[rgba(15,12,28,0.98)] border-2 border-primary-50-950 p-2 shadow-lg md:order-2"
 		>
-			<svg viewBox="0 0 128 128">
-				<g fill="#3FB6D3"
-					><path
-						d="M12.3 64.2L76.3 0h39.4L32.1 83.6zM76.3 128h39.4L81.6 93.9l34.1-34.8H76.3L42.2 93.5z"
-					/></g
-				><path fill="#27AACD" d="M81.6 93.9l-20-20-19.4 19.6 19.4 19.6z" /><path
-					fill="#19599A"
-					d="M115.7 128L81.6 93.9l-20 19.2L76.3 128z"
-				/><linearGradient
-					id="flutter-original-a"
-					gradientUnits="userSpaceOnUse"
-					x1="59.365"
-					y1="116.36"
-					x2="86.825"
-					y2="99.399"
-					><stop offset="0" stop-color="#1b4e94" /><stop offset=".63" stop-color="#1a5497" /><stop
-						offset="1"
-						stop-color="#195a9b"
-					/></linearGradient
-				><path fill="url(#flutter-original-a)" d="M61.6 113.1l30.8-8.4-10.8-10.8z" />
-			</svg>
+			<Code size={24} class="text-white" />
 		</div>
 		<!-- Card -->
 		<div
-			class="order-3 mx-5 hidden w-[calc(100%-4rem)] flex-1 items-end justify-end rounded p-4 md:order-1 md:flex"
+			class="order-3 mx-5 hidden w-[calc(100%-4rem)] flex-1 items-center justify-start rounded p-4 md:order-1 md:flex"
 		>
-			<div class="flex flex-row items-end justify-end space-x-2">
-				<div class="font-bold">
+			<div
+				class="flex items-center gap-2 rounded-lg bg-[rgba(91,169,253,0.1)] border border-[rgba(91,169,253,0.2)] px-4 py-2"
+			>
+				<div class="text-sm font-semibold text-white">
 					<time datetime="2018-04-01">{entelectOM.dateFrom}</time>
-					-
+					<span class="mx-2 text-[#5ba9fd]">→</span>
 					<time datetime="2018-10-30">{entelectOM.dateTo}</time>
 				</div>
 			</div>
@@ -81,12 +69,14 @@
 		class="is-active group relative flex flex-wrap items-center justify-start md:flex-row md:items-center md:justify-between"
 	>
 		<div
-			class="order-2 mx-5 hidden w-[calc(100%-4rem)] flex-1 items-start justify-start rounded p-4 md:order-3 md:flex"
+			class="order-2 mx-5 hidden w-[calc(100%-4rem)] flex-1 items-center justify-start rounded p-4 md:order-3 md:flex"
 		>
-			<div class="flex flex-row items-end justify-end space-x-2">
-				<div class="font-bold">
+			<div
+				class="flex items-center gap-2 rounded-lg bg-[rgba(91,169,253,0.1)] border border-[rgba(91,169,253,0.2)] px-4 py-2"
+			>
+				<div class="text-sm font-semibold text-white">
 					<time datetime="2018-08-30">{entelectStdBank.dateFrom}</time>
-					-
+					<span class="mx-2 text-[#5ba9fd]">→</span>
 					<time datetime="2020-12-30">{entelectStdBank.dateTo}</time>
 				</div>
 			</div>
@@ -94,37 +84,9 @@
 
 		<!-- Icon -->
 		<div
-			class="text-white-500 order-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-surface-50 p-1 shadow md:order-2"
+			class="order-1 z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-linear-to-br from-[rgba(22,19,35,0.95)] to-[rgba(15,12,28,0.98)] border-2 border-primary-50-950 p-2 shadow-lg md:order-2"
 		>
-			<svg
-				version="1.1"
-				id="Layer_1"
-				xmlns="http://www.w3.org/2000/svg"
-				xmlns:xlink="http://www.w3.org/1999/xlink"
-				viewBox="0 0 512 512"
-				xml:space="preserve"
-			>
-				<path
-					style="fill:#333333;"
-					d="M368,512H144c-17.6,0-32-14.4-32-32V32c0-17.6,14.4-32,32-32h224c17.6,0,32,14.4,32,32v448C400,497.6,385.6,512,368,512z"
-				/>
-				<rect x="135.456" y="50.672" style="fill:#0BA4E0;" width="241.28" height="372" />
-				<g>
-					<path
-						style="fill:#D6D6D6;"
-						d="M256.176,489.44c-12.496,0-22.656-10.16-22.656-22.656s10.16-22.672,22.656-22.672s22.672,10.176,22.672,22.672S268.672,489.44,256.176,489.44z M256.176,452.112c-8.08,0-14.656,6.576-14.656,14.672c0,8.08,6.576,14.656,14.656,14.656c8.096,0,14.672-6.576,14.672-14.656C270.848,458.688,264.272,452.112,256.176,452.112z"
-					/>
-					<circle style="fill:#D6D6D6;" cx="256.16" cy="25.328" r="7.792" />
-					<circle style="fill:#D6D6D6;" cx="312.816" cy="25.328" r="7.792" />
-					<circle style="fill:#D6D6D6;" cx="337.44" cy="25.328" r="7.792" />
-				</g>
-				<g>
-					<rect x="169.904" y="285.008" style="fill:#FFFFFF;" width="48.928" height="16" />
-					<rect x="169.904" y="247.456" style="fill:#FFFFFF;" width="90.016" height="16" />
-					<rect x="169.904" y="209.92" style="fill:#FFFFFF;" width="131.104" height="16" />
-					<rect x="169.904" y="172.336" style="fill:#FFFFFF;" width="172.192" height="16" />
-				</g>
-			</svg>
+			<Code size={24} class="text-white" />
 		</div>
 		<!-- Card -->
 		<svelte:component
@@ -141,38 +103,20 @@
 		<svelte:component this={experienceCard} experience={dynexIt} order="order-2 md:order-3" />
 		<!-- Icon -->
 		<div
-			class="text-white-500 order-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-surface-50 p-1 shadow md:order-2"
+			class="order-1 z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-linear-to-br from-[rgba(22,19,35,0.95)] to-[rgba(15,12,28,0.98)] border-2 border-primary-50-950 p-2 shadow-lg md:order-2"
 		>
-			<svg viewBox="0 0 128 128">
-				<g fill="#3FB6D3"
-					><path
-						d="M12.3 64.2L76.3 0h39.4L32.1 83.6zM76.3 128h39.4L81.6 93.9l34.1-34.8H76.3L42.2 93.5z"
-					/></g
-				><path fill="#27AACD" d="M81.6 93.9l-20-20-19.4 19.6 19.4 19.6z" /><path
-					fill="#19599A"
-					d="M115.7 128L81.6 93.9l-20 19.2L76.3 128z"
-				/><linearGradient
-					id="flutter-original-a"
-					gradientUnits="userSpaceOnUse"
-					x1="59.365"
-					y1="116.36"
-					x2="86.825"
-					y2="99.399"
-					><stop offset="0" stop-color="#1b4e94" /><stop offset=".63" stop-color="#1a5497" /><stop
-						offset="1"
-						stop-color="#195a9b"
-					/></linearGradient
-				><path fill="url(#flutter-original-a)" d="M61.6 113.1l30.8-8.4-10.8-10.8z" />
-			</svg>
+			<Code size={24} class="text-white" />
 		</div>
 		<!-- Card -->
 		<div
-			class="order-3 mx-5 hidden w-[calc(100%-4rem)] flex-1 items-end justify-end rounded p-4 md:order-1 md:flex"
+			class="order-3 mx-5 hidden w-[calc(100%-4rem)] flex-1 items-center justify-start rounded p-4 md:order-1 md:flex"
 		>
-			<div class="flex items-center justify-between space-x-2">
-				<div class="font-bold">
+			<div
+				class="flex items-center gap-2 rounded-lg bg-[rgba(91,169,253,0.1)] border border-[rgba(91,169,253,0.2)] px-4 py-2"
+			>
+				<div class="text-sm font-semibold text-white">
 					<time datetime="2018-04-01">{dynexIt.dateFrom}</time>
-					-
+					<span class="mx-2 text-[#5ba9fd]">→</span>
 					<time datetime="2018-10-30">{dynexIt.dateTo}</time>
 				</div>
 			</div>
