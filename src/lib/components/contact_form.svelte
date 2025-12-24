@@ -24,17 +24,19 @@
 				loading = false;
 				if (result.type === 'success') {
 					formElement.reset();
-					if (result.data) {
-						showSuccessToast(result.data['body'] as string);
+					const data = result.data as { success: boolean; description: string } | undefined;
+					if (data?.description) {
+						showSuccessToast(data.description);
 					}
 				} else if (result.type === 'failure') {
-					if (result.data) {
-						showErrorToast(result.data['description'] as string);
+					const data = result.data as { description: string; error: string } | undefined;
+					if (data?.description) {
+						showErrorToast(data.description);
 					}
 				}
 				await applyAction(result);
 				reset?.();
-				update();
+				await update({ reset: false });
 			};
 		}}
 	>
@@ -311,10 +313,6 @@
 
 	.send-icon {
 		transition: transform 0.3s ease;
-	}
-
-	.submit-button:hover:not(:disabled) .send-icon {
-		transform: translateX(4px);
 	}
 
 	.social-links {

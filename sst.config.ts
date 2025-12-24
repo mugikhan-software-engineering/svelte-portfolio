@@ -29,18 +29,12 @@ export default $config({
 			? new sst.aws.Router(routerName, {
 					domain: {
 						name: domain,
-						redirects: redirects,
-						dns: sst.aws.dns({ override: true })
+						redirects: redirects
 					}
 				})
 			: new sst.aws.Router(routerName);
 
-		let links: any[] = [];
-		if (isPermanentStage) {
-			links = [...allSecrets, api, email];
-		} else {
-			links = [...allSecrets];
-		}
+		const links = isPermanentStage ? [...allSecrets, api, email] : [...allSecrets, api];
 
 		new sst.aws.SvelteKit('site', {
 			router: {

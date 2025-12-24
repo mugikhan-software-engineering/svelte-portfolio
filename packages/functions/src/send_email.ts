@@ -1,13 +1,21 @@
 import { SESv2Client, SendEmailCommand } from '@aws-sdk/client-sesv2';
-import type { APIGatewayProxyEvent } from 'aws-lambda';
+import type { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
 import { Resource } from 'sst';
 
-export const handler = async (event: APIGatewayProxyEvent) => {
+const jsonResponse = (statusCode: number, body: object): APIGatewayProxyResult => ({
+	statusCode,
+	headers: {
+		'Content-Type': 'application/json'
+	},
+	body: JSON.stringify(body)
+});
+
+export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
 	if (event.body == null || event.body == undefined) {
-		return {
-			statusCode: 400,
-			body: 'Your email failed to send!'
-		};
+		return jsonResponse(400, {
+			success: false,
+			message: 'Your email failed to send!'
+		});
 	}
 
 	try {
@@ -17,10 +25,10 @@ export const handler = async (event: APIGatewayProxyEvent) => {
 		if (process.env.SST_DEV) {
 			console.log('App Stage', Resource.App.stage);
 			console.log('Data', JSON.stringify(data));
-			return {
-				statusCode: 200,
-				body: 'Email sent!'
-			};
+			return jsonResponse(200, {
+				success: true,
+				message: 'Email sent!'
+			});
 		}
 
 		const client = new SESv2Client({ region: 'af-south-1' });
@@ -35,7 +43,7 @@ export const handler = async (event: APIGatewayProxyEvent) => {
 			ReplyToAddresses: [email],
 			Content: {
 				Template: {
-					TemplateName: 'PORTFOLIOREQUEST',
+					TemplateName: 'PortfolioTemplate',
 					TemplateData: JSON.stringify({
 						name: name,
 						service: service,
@@ -48,15 +56,15 @@ export const handler = async (event: APIGatewayProxyEvent) => {
 
 		const response = await client.send(params);
 		console.log('Email sent', response);
-		return {
-			statusCode: 200,
-			body: 'Your email has been sent!'
-		};
+		return jsonResponse(200, {
+			success: true,
+			message: 'Your email has been sent!'
+		});
 	} catch (error) {
 		console.error('Error sending email', error);
-		return {
-			statusCode: 400,
-			body: 'Your email failed to send!'
-		};
+		return jsonResponse(400, {
+			success: false,
+			message: 'Your email failed to send!'
+		});
 	}
 };
