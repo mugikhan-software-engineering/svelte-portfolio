@@ -41,16 +41,20 @@ export const actions: Actions = {
 	sendEmail: async ({ request }) => {
 		const data = await request.formData();
 
-		const token = data.get('cf-turnstile-response') as string;
-		const secret = Resource.CLOUDFLARE_SECRET_KEY.value as string;
+		// Skip Turnstile validation in development
+		const isDev = import.meta.env.DEV;
+		if (!isDev) {
+			const token = data.get('cf-turnstile-response') as string;
+			const secret = Resource.CLOUDFLARE_SECRET_KEY.value as string;
 
-		const { success, error } = await validateToken(token, secret);
+			const { success, error } = await validateToken(token, secret);
 
-		if (!success) {
-			return fail(401, {
-				description: 'Invalid CAPTCHA',
-				error: error
-			});
+			if (!success) {
+				return fail(401, {
+					description: 'Invalid CAPTCHA',
+					error: error
+				});
+			}
 		}
 
 		const contactFormData = {
@@ -59,6 +63,7 @@ export const actions: Actions = {
 			service: data.get('service')?.toString() ?? '',
 			message: data.get('message')?.toString() ?? ''
 		};
+
 		if (
 			!contactFormData.email ||
 			!contactFormData.name ||
@@ -80,18 +85,19 @@ export const actions: Actions = {
 					'Content-Type': 'application/json'
 				}
 			});
-			const responseMessage = await response.text();
 
-			if (!response.ok) {
+			const result: { success: boolean; message: string } = await response.json();
+
+			if (!response.ok || !result.success) {
 				return fail(response.status, {
-					description: 'Failed to send your message. Please try again.',
-					error: responseMessage
+					description: result.message || 'Failed to send your message. Please try again.',
+					error: result.message
 				});
 			}
 
 			return {
 				success: true,
-				description: responseMessage
+				description: result.message
 			};
 		} catch {
 			return fail(400, {
